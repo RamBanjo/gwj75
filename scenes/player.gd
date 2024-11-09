@@ -6,24 +6,28 @@ const JUMP_VELOCITY = -400.0
 
 
 func _physics_process(delta: float) -> void:
-	## Add the gravity.
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-#
-	## Handle jump.
-	#if Input.is_action_just_pressed("ui_accept") and is_on_floor():
-		#velocity.y = JUMP_VELOCITY
-#
-	## Get the input direction and handle the movement/deceleration.
-	## As good practice, you should replace UI actions with custom gameplay actions.
-	#var direction := Input.get_axis("ui_left", "ui_right")
-	#if direction:
-		#velocity.x = direction * SPEED
-	#else:
-		#velocity.x = move_toward(velocity.x, 0, SPEED)
-		
-		
-	velocity.x = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left")) * SPEED
-	velocity.y = (Input.get_action_strength("move_down") - Input.get_action_strength("move_up")) * SPEED
+	
+	var motion := Vector2()
+	
+	motion.x = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
+	motion.y = (Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
+	
+	velocity = motion.normalized() * SPEED
 
 	move_and_slide()
+	
+	if get_slide_collision_count() > 0:
+		check_collide_box(motion)
+	
+func check_collide_box(motion: Vector2):
+	if abs(motion.x) + abs(motion.y) > 1:
+		return
+		
+	var box := get_slide_collision(0).get_collider() as BoxObject
+	
+	
+	if box:
+		
+		var direction_to_box = self.position.direction_to(box.position).round()
+		if motion.normalized() == direction_to_box:
+			box.push(motion.normalized() * SPEED * 0.95)
