@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://cif4nswj6g14"]
+
+[ext_resource type="Script" path="res://scenes/death/spike_floor.gd" id="1_iy67m"]
+[ext_resource type="Texture2D" uid="uid://dprip4ibj351c" path="res://sprites/spikes.png" id="2_d7b6l"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_n4ae3"]
+size = Vector2(64, 64)
+
+[node name="SpikeFloor" type="Area2D"]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_iy67m")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+texture = ExtResource("2_d7b6l")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_n4ae3")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

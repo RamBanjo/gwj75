@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://o0d2nqbm33mw"]
+
+[ext_resource type="Script" path="res://scenes/doors/door.gd" id="1_qufcp"]
+[ext_resource type="Texture2D" uid="uid://5hmde7txrvf4" path="res://sprites/door.png" id="2_q7gnk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b4wy"]
+size = Vector2(64, 64)
+
+[node name="Door" type="StaticBody2D" groups=["undoable", "unlockable"]]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_qufcp")
+lock_state = false
+delete_potential = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+light_mask = 3
+visibility_layer = 3
+texture = ExtResource("2_q7gnk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8b4wy")
+disabled = true

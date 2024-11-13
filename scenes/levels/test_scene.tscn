@@ -1,0 +1,126 @@
+[gd_scene load_steps=11 format=4 uid="uid://o7i27w8pd8yd"]
+
+[ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_lxwbp"]
+[ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="2_j03ns"]
+[ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="4_4dkgs"]
+[ext_resource type="PackedScene" uid="uid://djap08hwolovk" path="res://scenes/player_spawner/player_spawner.tscn" id="5_pk110"]
+[ext_resource type="PackedScene" uid="uid://dkiiwqki64hny" path="res://scenes/doors/locked_red_door.tscn" id="6_1ufe7"]
+[ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="7_fxjmf"]
+[ext_resource type="PackedScene" uid="uid://cif4nswj6g14" path="res://scenes/death/spike_floor.tscn" id="8_pe8kc"]
+[ext_resource type="PackedScene" uid="uid://6pq6ce6qamxo" path="res://scenes/floor_buttons/red_floor_button.tscn" id="8_t15u1"]
+[ext_resource type="PackedScene" uid="uid://bko46rodpekgd" path="res://scenes/keys/red_key.tscn" id="9_fkpeo"]
+[ext_resource type="PackedScene" uid="uid://b6yx3h7cp7dmu" path="res://scenes/mirror/mirror.tscn" id="10_q7at5"]
+
+[node name="Node2D" type="Node2D"]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_lxwbp")
+
+[node name="ForegroundTiles" parent="." instance=ExtResource("2_j03ns")]
+tile_map_data = PackedByteArray("AAABAAIAAQADAAQAAAACAAEAAQABAAMAAAACAAIAAQAFAAQAAAADAAEAAQAAAAIAAAADAAIAAQAEAAMAAAAEAAEAAQACAAIAAAAEAAIAAQAFAAMAAAAFAAEAAQABAAMAAAAFAAIAAQABAAQAAAAGAAEAAQAAAAEAAAAGAAIAAQAAAAEAAAAIAAEAAQAAAAEAAAAIAAIAAQAAAAEAAAAJAAEAAQABAAMAAAAJAAIAAQADAAQAAAAKAAEAAQAFAAMAAAAKAAIAAQACAAQAAAAAAAAAAQAAAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQACAAAAAAAEAAAAAQAAAAAAAAAFAAAAAQABAAAAAAAGAAAAAQACAAAAAAAIAAAAAQAAAAAAAAAJAAAAAQABAAAAAAAKAAAAAQABAAAAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAQAAQAAAAEAAAAAAAUAAQAAAAEAAAAAAAYAAQAAAAEAAAAAAAcAAQAAAAEAAAAAAAgAAQAAAAEAAAAAAAkAAQAAAAIAAAABAAkAAQABAAIAAAACAAkAAQABAAIAAAADAAkAAQABAAIAAAAEAAkAAQABAAIAAAAFAAkAAQABAAIAAAAGAAkAAQABAAIAAAAHAAkAAQACAAIAAAAIAAkAAQAAAAIAAAAJAAkAAQABAAIAAAAKAAkAAQABAAIAAAABAAMAAQAGAAAAAAABAAQAAQAGAAEAAAACAAMAAQAIAAAAAAACAAQAAQAJAAEAAAADAAMAAQADAAQAAAAEAAMAAQAFAAQAAAAFAAMAAQAGAAAAAAAGAAMAAQAAAAIAAAAHAAMAAQABAAIAAAAIAAMAAQACAAIAAAAJAAMAAQADAAAAAAAKAAMAAQAIAAAAAAAKAAgAAQAIAAIAAAAJAAgAAQADAAIAAAAIAAgAAQACAAEAAAAHAAgAAQAAAAEAAAAGAAgAAQAFAAIAAAAFAAgAAQAHAAIAAAAEAAgAAQAHAAIAAAADAAgAAQAHAAIAAAACAAgAAQAHAAIAAAABAAgAAQADAAIAAAABAAcAAQAGAAEAAAABAAYAAQAGAAEAAAABAAUAAQADAAEAAAADAAUAAQAHAAEAAAAEAAUAAQAHAAEAAAAFAAUAAQAIAAEAAAAGAAYAAQAFAAAAAAAHAAYAAQAHAAIAAAAIAAYAAQADAAAAAAACAAUAAQAEAAEAAAACAAYAAQAEAAEAAAACAAcAAQAHAAEAAAADAAQAAQAHAAAAAAADAAYAAQAHAAEAAAADAAcAAQAEAAEAAAAEAAQAAQAEAAAAAAAEAAYAAQAEAAEAAAAEAAcAAQAHAAEAAAAFAAQAAQAIAAAAAAAFAAYAAQAJAAMAAAAFAAcAAQAHAAEAAAAGAAQAAQADAAMAAAAGAAUAAQADAAQAAAAGAAcAAQAFAAEAAAAHAAQAAQAEAAMAAAAHAAUAAQAEAAQAAAAHAAcAAQAAAAAAAAAIAAQAAQAFAAMAAAAIAAUAAQACAAQAAAAIAAcAAQACAAAAAAAJAAQAAQADAAEAAAAJAAUAAQADAAEAAAAJAAcAAQADAAEAAAAKAAQAAQAIAAEAAAAKAAUAAQAIAAEAAAAKAAYAAQAIAAEAAAAKAAcAAQAIAAEAAAABAAEAAQADAAMAAAAAAAoAAQAAAAMAAAAAAAsAAQADAAQAAAABAAoAAQAEAAMAAAABAAsAAQABAAQAAAACAAoAAQAEAAMAAAACAAsAAQAEAAQAAAADAAoAAQAEAAMAAAADAAsAAQABAAQAAAAEAAoAAQAEAAMAAAAEAAsAAQAEAAQAAAAFAAoAAQABAAMAAAAFAAsAAQABAAQAAAAGAAoAAQABAAMAAAAGAAsAAQAEAAQAAAAHAAoAAQAEAAMAAAAHAAsAAQABAAQAAAAJAAYAAQAKAAEAAAALAAAAAQACAAAAAAALAAkAAQACAAIAAAALAAgAAQACAAEAAAALAAcAAQACAAEAAAALAAYAAQACAAEAAAALAAUAAQACAAEAAAALAAQAAQACAAEAAAALAAMAAQACAAEAAAALAAIAAQACAAEAAAALAAEAAQACAAEAAAALAAsAAQAFAAQAAAALAAoAAQAFAAMAAAAKAAsAAQABAAQAAAAKAAoAAQAEAAMAAAAJAAsAAQABAAQAAAAJAAoAAQABAAMAAAAIAAsAAQAEAAQAAAAIAAoAAQABAAMAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("4_4dkgs")]
+light_mask = 1
+visibility_layer = 1
+position = Vector2(160, 352)
+
+[node name="GoalFloor" parent="." instance=ExtResource("7_fxjmf")]
+position = Vector2(352, 224)
+
+[node name="WinScreen" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="WinScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -11.5
+offset_right = 69.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 96
+text = "YOU HAVE WON!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerSpawner" parent="." instance=ExtResource("5_pk110")]
+position = Vector2(352, 544)
+
+[node name="Door" parent="." instance=ExtResource("6_1ufe7")]
+position = Vector2(352, 288)
+
+[node name="SpikeFloor" parent="." instance=ExtResource("8_pe8kc")]
+position = Vector2(480, 416)
+
+[node name="RedFloorButton" parent="." instance=ExtResource("8_t15u1")]
+position = Vector2(608, 416)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(384, 368)
+zoom = Vector2(0.75, 0.75)
+
+[node name="Key" parent="." instance=ExtResource("9_fkpeo")]
+position = Vector2(224, 480)
+
+[node name="UndoHint" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="UndoHint"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -411.5
+offset_right = 411.5
+offset_bottom = 132.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 48
+text = "Press Z to Undo"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MirrorDropHint" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="MirrorDropHint"]
+light_mask = 3
+visibility_layer = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -411.5
+offset_top = -132.0
+offset_right = 411.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Press SPACE to Drop Mirror"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MirrorHoldHint" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Label" type="Label" parent="MirrorHoldHint"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -411.5
+offset_top = -132.0
+offset_right = 411.5
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 48
+text = "Press SPACE to Look in Mirror"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Mirror" parent="." instance=ExtResource("10_q7at5")]
+position = Vector2(288, 352)

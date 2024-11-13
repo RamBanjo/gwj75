@@ -1,0 +1,58 @@
+[gd_resource type="SpriteFrames" load_steps=7 format=3 uid="uid://d0j6rdvbi7q01"]
+
+[ext_resource type="Texture2D" uid="uid://r4fwkrenfiyd" path="res://sprites/key_assemble.png" id="1_353e8"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0uc14"]
+atlas = ExtResource("1_353e8")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_updk0"]
+atlas = ExtResource("1_353e8")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gpi70"]
+atlas = ExtResource("1_353e8")
+region = Rect2(128, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2i2re"]
+atlas = ExtResource("1_353e8")
+region = Rect2(192, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2ig3v"]
+atlas = ExtResource("1_353e8")
+region = Rect2(256, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uc14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uc14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uc14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uc14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0uc14")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_updk0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gpi70")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2i2re")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2ig3v")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]

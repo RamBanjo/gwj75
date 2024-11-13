@@ -1,15 +1,23 @@
-[gd_scene load_steps=4 format=3 uid="uid://crgam25ce6rku"]
+[gd_scene load_steps=5 format=3 uid="uid://crgam25ce6rku"]
 
 [ext_resource type="Texture2D" uid="uid://cmvs33gy4dd7i" path="res://sprites/player.png" id="1_dsjfy"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_trqil"]
+[ext_resource type="PackedScene" uid="uid://dk2hh7n5tvge4" path="res://scenes/boxes/player_corpse.tscn" id="2_spbqi"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngeta"]
-size = Vector2(64, 64)
+size = Vector2(48, 48)
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" groups=["player", "undoable"]]
+light_mask = 3
+visibility_layer = 3
+z_index = 1
+motion_mode = 1
 script = ExtResource("1_trqil")
+player_corpse = ExtResource("2_spbqi")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
 texture = ExtResource("1_dsjfy")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
