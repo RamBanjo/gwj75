@@ -1,0 +1,200 @@
+[gd_scene load_steps=17 format=4 uid="uid://bsodjvyu1d3db"]
+
+[ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_tqp0d"]
+[ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="2_oe8tu"]
+[ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="3_pqvhv"]
+[ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="4_sfcpv"]
+[ext_resource type="PackedScene" uid="uid://dkiiwqki64hny" path="res://scenes/doors/red/locked_red_door.tscn" id="5_2mplx"]
+[ext_resource type="PackedScene" uid="uid://6pq6ce6qamxo" path="res://scenes/floor_buttons/red/red_floor_button.tscn" id="6_klj0j"]
+[ext_resource type="PackedScene" uid="uid://m56d7cor31ag" path="res://scenes/canvases/win_screen.tscn" id="7_mv6gj"]
+[ext_resource type="PackedScene" uid="uid://12jd6q2hupeq" path="res://scenes/canvases/undo_hint.tscn" id="8_1vbnu"]
+[ext_resource type="PackedScene" uid="uid://cbu5uxgq3qac5" path="res://scenes/canvases/mirror_drop_hint.tscn" id="9_mjnpn"]
+[ext_resource type="PackedScene" uid="uid://jduxfwufml56" path="res://scenes/canvases/mirror_hold_hint.tscn" id="10_eo74p"]
+[ext_resource type="PackedScene" uid="uid://b6yx3h7cp7dmu" path="res://scenes/mirror/mirror.tscn" id="12_g0ssh"]
+[ext_resource type="PackedScene" uid="uid://3nys48i57qjr" path="res://scenes/doors/red/counting_locked_red_door.tscn" id="12_uq42m"]
+[ext_resource type="PackedScene" uid="uid://d3q0slgc8gwnr" path="res://scenes/boxes/physics_box.tscn" id="13_0fopg"]
+[ext_resource type="PackedScene" uid="uid://bko46rodpekgd" path="res://scenes/keys/red/red_key.tscn" id="13_q6hxg"]
+[ext_resource type="PackedScene" uid="uid://caggf7qd6b0fj" path="res://scenes/doors/red/counting_unlocked_red_door.tscn" id="14_2l8jq"]
+[ext_resource type="PackedScene" uid="uid://o0d2nqbm33mw" path="res://scenes/doors/red/unlocked_red_door.tscn" id="16_ocfcg"]
+
+[node name="Node2D" type="Node2D"]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_tqp0d")
+
+[node name="ForegroundTiles" parent="." instance=ExtResource("2_oe8tu")]
+tile_map_data = PackedByteArray("AAABAAEAAQAAAAAAAAACAAEAAQABAAAAAAADAAEAAQABAAAAAAAEAAEAAQABAAAAAAAFAAEAAQABAAAAAAAGAAEAAQABAAAAAAAHAAEAAQABAAAAAAAIAAEAAQABAAAAAAAJAAEAAQABAAAAAAAKAAEAAQABAAAAAAALAAEAAQABAAAAAAAMAAEAAQABAAAAAAANAAEAAQABAAAAAAAOAAEAAQABAAAAAAAPAAEAAQABAAAAAAAQAAEAAQABAAAAAAARAAEAAQABAAAAAAASAAEAAQABAAAAAAATAAEAAQABAAAAAAAUAAEAAQABAAAAAAAVAAEAAQABAAAAAAAWAAEAAQABAAAAAAAXAAEAAQABAAAAAAAYAAEAAQABAAAAAAAZAAEAAQABAAAAAAAaAAEAAQABAAAAAAAbAAEAAQABAAAAAAAcAAEAAQABAAAAAAAdAAEAAQABAAAAAAAeAAEAAQABAAAAAAAfAAEAAQABAAAAAAAgAAEAAQABAAAAAAAhAAEAAQABAAAAAAAiAAEAAQACAAAAAAAiAAIAAQACAAEAAAAiAAMAAQACAAEAAAAiAAQAAQACAAEAAAAiAAUAAQACAAEAAAAiAAYAAQACAAIAAAAiAAwAAQACAAEAAAAiAA0AAQACAAEAAAAiAA4AAQACAAEAAAAiAA8AAQACAAEAAAAiABAAAQACAAIAAAAhABAAAQABAAIAAAAgABAAAQABAAIAAAAfABAAAQABAAIAAAAeABAAAQAAAAIAAAAbABAAAQACAAIAAAAaABAAAQABAAIAAAAZABAAAQABAAIAAAAYABAAAQABAAIAAAAXABAAAQABAAIAAAAWABAAAQABAAIAAAAVABAAAQABAAIAAAAUABAAAQABAAIAAAATABAAAQABAAIAAAASABAAAQABAAIAAAARABAAAQABAAIAAAAQABAAAQABAAIAAAAPABAAAQABAAIAAAAOABAAAQABAAIAAAANABAAAQABAAIAAAAMABAAAQABAAIAAAALABAAAQABAAIAAAAKABAAAQABAAIAAAAJABAAAQABAAIAAAAIABAAAQABAAIAAAAHABAAAQABAAIAAAAGABAAAQABAAIAAAAFABAAAQABAAIAAAAEABAAAQABAAIAAAADABAAAQABAAIAAAACABAAAQABAAIAAAABABAAAQAAAAIAAAABAA8AAQAAAAEAAAABAA4AAQAAAAEAAAABAA0AAQAAAAEAAAABAAwAAQAAAAEAAAABAAsAAQAAAAEAAAABAAoAAQAAAAEAAAABAAkAAQAAAAEAAAABAAgAAQAAAAEAAAABAAcAAQAAAAEAAAABAAYAAQAAAAEAAAABAAUAAQAAAAEAAAABAAQAAQAAAAEAAAABAAMAAQAAAAEAAAABAAIAAQAAAAEAAAAiABIAAQACAAQAAAAiABEAAQAFAAMAAAAhABIAAQABAAQAAAAhABEAAQAEAAMAAAAgABIAAQAEAAQAAAAgABEAAQAEAAMAAAAfABIAAQAEAAQAAAAfABEAAQABAAMAAAAeABIAAQADAAQAAAAeABEAAQADAAMAAAAbABIAAQAFAAQAAAAbABEAAQAFAAMAAAAaABIAAQAEAAQAAAAaABEAAQABAAMAAAAZABIAAQAEAAQAAAAZABEAAQAEAAMAAAAYABIAAQAEAAQAAAAYABEAAQABAAMAAAAXABIAAQABAAQAAAAXABEAAQABAAMAAAAWABIAAQABAAQAAAAWABEAAQABAAMAAAAVABIAAQABAAQAAAAVABEAAQAEAAMAAAAUABIAAQABAAQAAAAUABEAAQABAAMAAAATABIAAQAEAAQAAAATABEAAQAEAAMAAAASABIAAQAEAAQAAAASABEAAQAEAAMAAAARABIAAQABAAQAAAARABEAAQAEAAMAAAAQABIAAQAEAAQAAAAQABEAAQABAAMAAAAPABIAAQABAAQAAAAPABEAAQABAAMAAAAOABIAAQAEAAQAAAAOABEAAQABAAMAAAANABIAAQABAAQAAAANABEAAQAEAAMAAAAMABIAAQAEAAQAAAAMABEAAQABAAMAAAALABIAAQABAAQAAAALABEAAQAEAAMAAAAKABIAAQABAAQAAAAKABEAAQAEAAMAAAAJABIAAQABAAQAAAAJABEAAQAEAAMAAAAIABIAAQAEAAQAAAAIABEAAQAEAAMAAAAHABIAAQABAAQAAAAHABEAAQAEAAMAAAAGABIAAQAEAAQAAAAGABEAAQAEAAMAAAAFABIAAQABAAQAAAAFABEAAQABAAMAAAAEABIAAQAEAAQAAAAEABEAAQAEAAMAAAADABIAAQAEAAQAAAADABEAAQABAAMAAAACABIAAQABAAQAAAACABEAAQABAAMAAAABABIAAQAAAAQAAAABABEAAQAAAAMAAAAhAAMAAQAFAAQAAAAhAAIAAQACAAMAAAAgAAMAAQAEAAQAAAAgAAIAAQAEAAMAAAAfAAMAAQAEAAQAAAAfAAIAAQAEAAMAAAAeAAMAAQABAAQAAAAeAAIAAQABAAMAAAAdAAMAAQABAAQAAAAdAAIAAQABAAMAAAAcAAMAAQAEAAQAAAAcAAIAAQABAAMAAAAbAAMAAQAEAAQAAAAbAAIAAQAEAAMAAAAaAAMAAQAEAAQAAAAaAAIAAQAEAAMAAAAZAAMAAQABAAQAAAAZAAIAAQAEAAMAAAAYAAMAAQAEAAQAAAAYAAIAAQAEAAMAAAAXAAMAAQABAAQAAAAXAAIAAQABAAMAAAAWAAMAAQABAAQAAAAWAAIAAQAEAAMAAAAVAAMAAQABAAQAAAAVAAIAAQAEAAMAAAAUAAMAAQAEAAQAAAAUAAIAAQAEAAMAAAATAAMAAQAEAAQAAAATAAIAAQABAAMAAAASAAMAAQABAAQAAAASAAIAAQABAAMAAAARAAMAAQAEAAQAAAARAAIAAQAEAAMAAAAQAAMAAQABAAQAAAAQAAIAAQAEAAMAAAAPAAMAAQABAAQAAAAPAAIAAQABAAMAAAAOAAMAAQAEAAQAAAAOAAIAAQABAAMAAAANAAMAAQABAAQAAAANAAIAAQAEAAMAAAAMAAMAAQAEAAQAAAAMAAIAAQAEAAMAAAALAAMAAQABAAQAAAALAAIAAQABAAMAAAAKAAMAAQABAAQAAAAKAAIAAQAEAAMAAAAJAAMAAQABAAQAAAAJAAIAAQAEAAMAAAAIAAMAAQABAAQAAAAIAAIAAQABAAMAAAAHAAMAAQABAAQAAAAHAAIAAQABAAMAAAAGAAMAAQAEAAQAAAAGAAIAAQABAAMAAAAFAAMAAQAEAAQAAAAFAAIAAQABAAMAAAAEAAMAAQAEAAQAAAAEAAIAAQAEAAMAAAADAAMAAQAEAAQAAAADAAIAAQABAAMAAAACAAMAAQAAAAQAAAACAAIAAQADAAMAAAAhAA8AAQAFAAIAAAAhAA4AAQAFAAEAAAAhAA0AAQAIAAEAAAAhAAwAAQAFAAAAAAAhAAYAAQABAAIAAAAhAAUAAQAIAAEAAAAhAAQAAQAIAAAAAAAgAA8AAQAHAAIAAAAgAA4AAQAHAAEAAAAgAA0AAQAHAAEAAAAgAAwAAQAHAAAAAAAgAAYAAQABAAIAAAAgAAUAAQAHAAEAAAAgAAQAAQAHAAAAAAAfAA8AAQADAAIAAAAfAA4AAQAGAAEAAAAfAA0AAQAGAAEAAAAfAAwAAQADAAAAAAAfAAcAAQAAAAEAAAAfAAYAAQAAAAAAAAAfAAUAAQAEAAIAAAAfAAQAAQAEAAAAAAAeAA8AAQACAAEAAAAeAA4AAQACAAEAAAAeAA0AAQACAAAAAAAeAAwAAQAHAAIAAAAeAAsAAQAIAAEAAAAeAAoAAQAFAAEAAAAeAAkAAQAIAAEAAAAeAAgAAQAFAAEAAAAeAAcAAQAIAAEAAAAeAAYAAQAIAAEAAAAeAAUAAQAJAAAAAAAeAAQAAQAHAAAAAAAdAAwAAQAHAAIAAAAdAAsAAQAEAAEAAAAdAAoAAQAEAAEAAAAdAAkAAQAHAAEAAAAdAAgAAQAEAAEAAAAdAAcAAQAHAAEAAAAdAAYAAQAHAAEAAAAdAAUAAQAEAAEAAAAdAAQAAQAEAAAAAAAcAAwAAQAEAAIAAAAcAAsAAQAEAAEAAAAcAAoAAQAHAAEAAAAcAAkAAQAHAAEAAAAcAAgAAQAEAAEAAAAcAAcAAQAHAAEAAAAcAAYAAQAHAAEAAAAcAAUAAQAEAAEAAAAcAAQAAQAEAAAAAAAbAA8AAQAAAAEAAAAbAA4AAQAAAAEAAAAbAA0AAQAAAAAAAAAbAAwAAQAHAAIAAAAbAAsAAQAHAAEAAAAbAAoAAQAEAAEAAAAbAAkAAQAEAAEAAAAbAAgAAQAHAAEAAAAbAAcAAQAEAAEAAAAbAAYAAQAHAAEAAAAbAAUAAQAEAAEAAAAbAAQAAQAEAAAAAAAaAA8AAQAIAAIAAAAaAA4AAQAFAAEAAAAaAA0AAQAIAAEAAAAaAAwAAQAJAAIAAAAaAAsAAQAHAAEAAAAaAAoAAQAEAAEAAAAaAAkAAQAHAAEAAAAaAAgAAQAEAAEAAAAaAAcAAQAHAAEAAAAaAAYAAQAEAAEAAAAaAAUAAQAHAAEAAAAaAAQAAQAHAAAAAAAZAA8AAQAHAAIAAAAZAA4AAQAHAAEAAAAZAA0AAQAHAAEAAAAZAAwAAQAEAAEAAAAZAAsAAQAHAAEAAAAZAAoAAQAEAAEAAAAZAAkAAQAHAAEAAAAZAAgAAQAHAAEAAAAZAAcAAQAEAAEAAAAZAAYAAQAEAAEAAAAZAAUAAQAEAAEAAAAZAAQAAQAHAAAAAAAYAA8AAQAHAAIAAAAYAA4AAQAHAAEAAAAYAA0AAQAEAAEAAAAYAAwAAQAEAAEAAAAYAAsAAQAHAAEAAAAYAAoAAQAEAAEAAAAYAAkAAQAEAAEAAAAYAAgAAQAEAAEAAAAYAAcAAQAHAAEAAAAYAAYAAQAHAAEAAAAYAAUAAQAEAAEAAAAYAAQAAQAHAAAAAAAXAA8AAQAEAAIAAAAXAA4AAQAEAAEAAAAXAA0AAQAEAAEAAAAXAAwAAQAHAAEAAAAXAAsAAQAHAAEAAAAXAAoAAQAEAAEAAAAXAAkAAQAHAAEAAAAXAAgAAQAHAAEAAAAXAAcAAQAEAAEAAAAXAAYAAQAEAAEAAAAXAAUAAQAEAAEAAAAXAAQAAQAHAAAAAAAWAA8AAQAHAAIAAAAWAA4AAQAHAAEAAAAWAA0AAQAHAAEAAAAWAAwAAQAEAAEAAAAWAAsAAQAHAAEAAAAWAAoAAQAHAAEAAAAWAAkAAQAHAAEAAAAWAAgAAQAHAAEAAAAWAAcAAQAHAAEAAAAWAAYAAQAHAAEAAAAWAAUAAQAEAAEAAAAWAAQAAQAHAAAAAAAVAA8AAQAEAAIAAAAVAA4AAQAHAAEAAAAVAA0AAQAHAAEAAAAVAAwAAQAEAAEAAAAVAAsAAQAEAAEAAAAVAAoAAQAEAAEAAAAVAAkAAQAEAAEAAAAVAAgAAQAHAAEAAAAVAAcAAQAEAAEAAAAVAAYAAQAEAAEAAAAVAAUAAQAHAAEAAAAVAAQAAQAHAAAAAAAUAA8AAQAEAAIAAAAUAA4AAQAEAAEAAAAUAA0AAQAHAAEAAAAUAAwAAQAHAAEAAAAUAAsAAQAHAAEAAAAUAAoAAQAEAAEAAAAUAAkAAQAHAAEAAAAUAAgAAQAEAAEAAAAUAAcAAQAHAAEAAAAUAAYAAQAHAAEAAAAUAAUAAQAHAAEAAAAUAAQAAQAEAAAAAAATAA8AAQAHAAIAAAATAA4AAQAHAAEAAAATAA0AAQAHAAEAAAATAAwAAQAEAAEAAAATAAsAAQAEAAEAAAATAAoAAQAHAAEAAAATAAkAAQAHAAEAAAATAAgAAQAEAAEAAAATAAcAAQAEAAEAAAATAAYAAQAHAAEAAAATAAUAAQAEAAEAAAATAAQAAQAEAAAAAAASAA8AAQAEAAIAAAASAA4AAQAHAAEAAAASAA0AAQAEAAEAAAASAAwAAQAHAAEAAAASAAsAAQAHAAEAAAASAAoAAQAEAAEAAAASAAkAAQAHAAEAAAASAAgAAQAEAAEAAAASAAcAAQAHAAEAAAASAAYAAQAHAAEAAAASAAUAAQAHAAEAAAASAAQAAQAHAAAAAAARAA8AAQAHAAIAAAARAA4AAQAHAAEAAAARAA0AAQAEAAEAAAARAAwAAQAEAAEAAAARAAsAAQAHAAEAAAARAAoAAQAHAAEAAAARAAkAAQAHAAEAAAARAAgAAQAHAAEAAAARAAcAAQAEAAEAAAARAAYAAQAHAAEAAAARAAUAAQAHAAEAAAARAAQAAQAHAAAAAAAQAA8AAQAHAAIAAAAQAA4AAQAEAAEAAAAQAA0AAQAEAAEAAAAQAAwAAQAEAAEAAAAQAAsAAQAEAAEAAAAQAAoAAQAHAAEAAAAQAAkAAQAEAAEAAAAQAAgAAQAEAAEAAAAQAAcAAQAHAAEAAAAQAAYAAQAHAAEAAAAQAAUAAQAEAAEAAAAQAAQAAQAEAAAAAAAPAA8AAQAHAAIAAAAPAA4AAQAHAAEAAAAPAA0AAQAEAAEAAAAPAAwAAQAEAAEAAAAPAAsAAQAHAAEAAAAPAAoAAQAEAAEAAAAPAAkAAQAEAAEAAAAPAAgAAQAEAAEAAAAPAAcAAQAHAAEAAAAPAAYAAQAEAAEAAAAPAAUAAQAHAAEAAAAPAAQAAQAEAAAAAAAOAA8AAQAEAAIAAAAOAA4AAQAEAAEAAAAOAA0AAQAHAAEAAAAOAAwAAQAHAAEAAAAOAAsAAQAHAAEAAAAOAAoAAQAEAAEAAAAOAAkAAQAEAAEAAAAOAAgAAQAEAAEAAAAOAAcAAQAEAAEAAAAOAAYAAQAEAAEAAAAOAAUAAQAHAAEAAAAOAAQAAQAHAAAAAAANAA8AAQAEAAIAAAANAA4AAQAEAAEAAAANAA0AAQAHAAEAAAANAAwAAQAHAAEAAAANAAsAAQAEAAEAAAANAAoAAQAHAAEAAAANAAkAAQAHAAEAAAANAAgAAQAHAAEAAAANAAcAAQAEAAEAAAANAAYAAQAHAAEAAAANAAUAAQAEAAEAAAANAAQAAQAEAAAAAAAMAA8AAQAHAAIAAAAMAA4AAQAEAAEAAAAMAA0AAQAHAAEAAAAMAAwAAQAHAAEAAAAMAAsAAQAHAAEAAAAMAAoAAQAEAAEAAAAMAAkAAQAEAAEAAAAMAAgAAQAEAAEAAAAMAAcAAQAHAAEAAAAMAAYAAQAEAAEAAAAMAAUAAQAHAAEAAAAMAAQAAQAHAAAAAAALAA8AAQAEAAIAAAALAA4AAQAHAAEAAAALAA0AAQAHAAEAAAALAAwAAQAEAAEAAAALAAsAAQAHAAEAAAALAAoAAQAEAAEAAAALAAkAAQAHAAEAAAALAAgAAQAHAAEAAAALAAcAAQAHAAEAAAALAAYAAQAHAAEAAAALAAUAAQAHAAEAAAALAAQAAQAHAAAAAAAKAA8AAQAEAAIAAAAKAA4AAQAEAAEAAAAKAA0AAQAEAAEAAAAKAAwAAQAEAAEAAAAKAAsAAQAEAAEAAAAKAAoAAQAHAAEAAAAKAAkAAQAHAAEAAAAKAAgAAQAHAAEAAAAKAAcAAQAEAAEAAAAKAAYAAQAEAAEAAAAKAAUAAQAHAAEAAAAKAAQAAQAEAAAAAAAJAA8AAQAEAAIAAAAJAA4AAQAHAAEAAAAJAA0AAQAEAAEAAAAJAAwAAQAEAAEAAAAJAAsAAQAHAAEAAAAJAAoAAQAHAAEAAAAJAAkAAQAEAAEAAAAJAAgAAQAEAAEAAAAJAAcAAQAHAAEAAAAJAAYAAQAHAAEAAAAJAAUAAQAEAAEAAAAJAAQAAQAHAAAAAAAIAA8AAQAEAAIAAAAIAA4AAQAEAAEAAAAIAA0AAQAHAAEAAAAIAAwAAQAEAAEAAAAIAAsAAQAEAAEAAAAIAAoAAQAEAAEAAAAIAAkAAQAHAAEAAAAIAAgAAQAHAAEAAAAIAAcAAQAEAAEAAAAIAAYAAQAEAAEAAAAIAAUAAQAHAAEAAAAIAAQAAQAEAAAAAAAHAA8AAQAHAAIAAAAHAA4AAQAHAAEAAAAHAA0AAQAEAAEAAAAHAAwAAQAEAAEAAAAHAAsAAQAHAAEAAAAHAAoAAQAHAAEAAAAHAAkAAQAHAAEAAAAHAAgAAQAEAAEAAAAHAAcAAQAEAAEAAAAHAAYAAQAHAAEAAAAHAAUAAQAHAAEAAAAHAAQAAQAEAAAAAAAGAA8AAQAHAAIAAAAGAA4AAQAHAAEAAAAGAA0AAQAEAAEAAAAGAAwAAQAEAAEAAAAGAAsAAQAHAAEAAAAGAAoAAQAHAAEAAAAGAAkAAQAEAAEAAAAGAAgAAQAEAAEAAAAGAAcAAQAEAAEAAAAGAAYAAQAEAAEAAAAGAAUAAQAHAAEAAAAGAAQAAQAEAAAAAAAFAA8AAQAEAAIAAAAFAA4AAQAEAAEAAAAFAA0AAQAHAAEAAAAFAAwAAQAHAAEAAAAFAAsAAQAEAAEAAAAFAAoAAQAEAAEAAAAFAAkAAQAEAAEAAAAFAAgAAQAEAAEAAAAFAAcAAQAHAAEAAAAFAAYAAQAEAAEAAAAFAAUAAQAHAAEAAAAFAAQAAQAEAAAAAAAEAA8AAQAHAAIAAAAEAA4AAQAEAAEAAAAEAA0AAQAEAAEAAAAEAAwAAQAEAAEAAAAEAAsAAQAHAAEAAAAEAAoAAQAEAAEAAAAEAAkAAQAHAAEAAAAEAAgAAQAEAAEAAAAEAAcAAQAHAAEAAAAEAAYAAQAEAAEAAAAEAAUAAQAHAAEAAAAEAAQAAQAEAAAAAAADAA8AAQAHAAIAAAADAA4AAQAHAAEAAAADAA0AAQAEAAEAAAADAAwAAQAHAAEAAAADAAsAAQAEAAEAAAADAAoAAQAHAAEAAAADAAkAAQAHAAEAAAADAAgAAQAEAAEAAAADAAcAAQAEAAEAAAADAAYAAQAEAAEAAAADAAUAAQAHAAEAAAADAAQAAQAHAAAAAAACAA8AAQAGAAIAAAACAA4AAQAGAAEAAAACAA0AAQADAAEAAAACAAwAAQAGAAEAAAACAAsAAQAGAAEAAAACAAoAAQADAAEAAAACAAkAAQADAAEAAAACAAgAAQAGAAEAAAACAAcAAQAGAAEAAAACAAYAAQADAAEAAAACAAUAAQAGAAEAAAACAAQAAQAGAAAAAAAcAA0AAQABAAAAAAAdAA0AAQABAAAAAAAdAA8AAQAFAAQAAAAdAA4AAQACAAMAAAAcAA8AAQADAAQAAAAcAA4AAQAAAAMAAAAfAAgAAQAAAAEAAAAfAAkAAQAAAAIAAAAgAAkAAQABAAIAAAAhAAkAAQABAAIAAAAiAAkAAQACAAAAAAAiAAoAAQACAAEAAAAiAAsAAQACAAEAAAAhAAsAAQACAAQAAAAhAAoAAQAFAAMAAAAgAAsAAQAEAAQAAAAgAAoAAQABAAMAAAAfAAsAAQAAAAQAAAAfAAoAAQADAAMAAAAiAAgAAQAFAAQAAAAiAAcAAQACAAMAAAAhAAgAAQABAAQAAAAhAAcAAQABAAMAAAAgAAgAAQADAAQAAAAgAAcAAQAAAAMAAAA=")
+
+[node name="MirrorTiles" parent="." instance=ExtResource("2_oe8tu")]
+light_mask = 2
+visibility_layer = 2
+tile_map_data = PackedByteArray("AAAFAAcAAgAAAAAAAwAFAAsAAgAAAAAAAwAFAAwAAgAAAAAAAwAFAA0AAgAAAAAAAwAFAA4AAgAAAAAAAwAFAA8AAgAAAAAAAwAGAAcAAgAAAAAAAwAHAAcAAgAAAAAAAwAIAAcAAgAAAAAAAwAIAAgAAgAAAAAAAwAIAAkAAgAAAAAAAwAIAAoAAgAAAAAAAwAIAAsAAgAAAAAAAwAIAAwAAgAAAAAAAwAIAA0AAgAAAAAAAwAJAAoAAgAAAAAAAwAJAA0AAgAAAAAAAwAKAAoAAgAAAAAAAwAKAA0AAgAAAAAAAwALAAoAAgAAAAAAAwALAA0AAgAAAAAAAwAMAA0AAgAAAAAAAwANAA0AAgAAAAAAAwAOAA0AAgAAAAAAAwAPAA0AAgAAAAAAAwAQAAcAAgAAAAAAAwAQAAgAAgAAAAAAAwAQAAkAAgAAAAAAAwAQAAoAAgAAAAAAAwAQAAsAAgAAAAAAAwAQAAwAAgAAAAAAAwAQAA0AAgAAAAAAAwATAAcAAgAAAAAAAwATAAgAAgAAAAAAAwATAAkAAgAAAAAAAwATAAoAAgAAAAAAAwATAAsAAgAAAAAAAwATAAwAAgAAAAAAAwATAA0AAgAAAAAAAwAUAA0AAgAAAAAAAwAVAA0AAgAAAAAAAwAWAA0AAgAAAAAAAwAXAA0AAgAAAAAAAwAYAA0AAgAAAAAAAwAZAA0AAgAAAAAAAwAaAA0AAgAAAAAAAwAeAAYAAgAAAAAAAwAdAAYAAgAAAAAAAwAcAAYAAgAAAAAAAwAbAAYAAgAAAAAAAwAaAAYAAgAAAAAAAwAZAAYAAgAAAAAAAwAYAAYAAgAAAAAAAwAXAAYAAgAAAAAAAwAWAAYAAgAAAAAAAwAcAAkAAgAAAAAAAwAbAAkAAgAAAAAAAwAaAAkAAgAAAAAAAwAZAAkAAgAAAAAAAwAYAAkAAgAAAAAAAwAXAAkAAgAAAAAAAwAWAAkAAgAAAAAAAwAWAAoAAgAAAAAAAwAWAAsAAgAAAAAAAwAWAAwAAgAAAAAAAwANAAQAAgAAAAAAAwANAAUAAgAAAAAAAwANAAYAAgAAAAAAAwANAAcAAgAAAAAAAwA=")
+
+[node name="Player" parent="." instance=ExtResource("3_pqvhv")]
+position = Vector2(224, 352)
+
+[node name="GoalFloor" parent="." instance=ExtResource("4_sfcpv")]
+position = Vector2(2080, 928)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1152, 648)
+zoom = Vector2(0.5, 0.5)
+
+[node name="WinScreen" parent="." instance=ExtResource("7_mv6gj")]
+
+[node name="UndoHint" parent="." instance=ExtResource("8_1vbnu")]
+
+[node name="MirrorDropHint" parent="." instance=ExtResource("9_mjnpn")]
+
+[node name="MirrorHoldHint" parent="." instance=ExtResource("10_eo74p")]
+
+[node name="TutorialCanvas" type="CanvasLayer" parent="."]
+
+[node name="Mirror" parent="." instance=ExtResource("12_g0ssh")]
+position = Vector2(224, 928)
+
+[node name="Mirror2" parent="." instance=ExtResource("12_g0ssh")]
+position = Vector2(1664, 960)
+
+[node name="Mirror3" parent="." instance=ExtResource("12_g0ssh")]
+position = Vector2(960, 768)
+
+[node name="Mirror4" parent="." instance=ExtResource("12_g0ssh")]
+position = Vector2(1472, 320)
+
+[node name="PhysicsBox" parent="." instance=ExtResource("13_0fopg")]
+light_mask = 3
+visibility_layer = 3
+position = Vector2(704, 576)
+
+[node name="RedFloorButton" parent="." instance=ExtResource("6_klj0j")]
+position = Vector2(704, 768)
+
+[node name="CountingDoor" parent="." instance=ExtResource("12_uq42m")]
+position = Vector2(1952, 800)
+unlock_number = 4
+
+[node name="Key" parent="." instance=ExtResource("13_q6hxg")]
+position = Vector2(1344, 768)
+
+[node name="Key2" parent="." instance=ExtResource("13_q6hxg")]
+position = Vector2(2112, 320)
+
+[node name="Key3" parent="." instance=ExtResource("13_q6hxg")]
+position = Vector2(448, 352)
+
+[node name="Key4" parent="." instance=ExtResource("13_q6hxg")]
+position = Vector2(1536, 736)
+
+[node name="CountingDoor2" parent="." instance=ExtResource("12_uq42m")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1792, 320)
+unlock_number = 1
+
+[node name="ReverseCountingDoor" parent="." instance=ExtResource("14_2l8jq")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1984, 320)
+unlock_number = 3
+
+[node name="Door" parent="." instance=ExtResource("5_2mplx")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(352, 288)
+
+[node name="Door2" parent="." instance=ExtResource("5_2mplx")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(352, 352)
+
+[node name="Door3" parent="." instance=ExtResource("5_2mplx")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(352, 416)
+
+[node name="Door4" parent="." instance=ExtResource("16_ocfcg")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(544, 288)
+
+[node name="Door5" parent="." instance=ExtResource("16_ocfcg")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(544, 352)
+
+[node name="Door6" parent="." instance=ExtResource("16_ocfcg")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(544, 416)
+
+[connection signal="body_entered" from="MirrorTiles/SpikeFloor" to="MirrorTiles/SpikeFloor" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203635" to="MirrorTiles/@Area2D@203635" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203636" to="MirrorTiles/@Area2D@203636" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203637" to="MirrorTiles/@Area2D@203637" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203638" to="MirrorTiles/@Area2D@203638" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203639" to="MirrorTiles/@Area2D@203639" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203640" to="MirrorTiles/@Area2D@203640" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203641" to="MirrorTiles/@Area2D@203641" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203642" to="MirrorTiles/@Area2D@203642" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203643" to="MirrorTiles/@Area2D@203643" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203644" to="MirrorTiles/@Area2D@203644" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203645" to="MirrorTiles/@Area2D@203645" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203646" to="MirrorTiles/@Area2D@203646" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203647" to="MirrorTiles/@Area2D@203647" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203648" to="MirrorTiles/@Area2D@203648" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203649" to="MirrorTiles/@Area2D@203649" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203650" to="MirrorTiles/@Area2D@203650" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203651" to="MirrorTiles/@Area2D@203651" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203652" to="MirrorTiles/@Area2D@203652" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203653" to="MirrorTiles/@Area2D@203653" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203654" to="MirrorTiles/@Area2D@203654" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203655" to="MirrorTiles/@Area2D@203655" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203656" to="MirrorTiles/@Area2D@203656" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203657" to="MirrorTiles/@Area2D@203657" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203658" to="MirrorTiles/@Area2D@203658" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203659" to="MirrorTiles/@Area2D@203659" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203660" to="MirrorTiles/@Area2D@203660" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203661" to="MirrorTiles/@Area2D@203661" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203662" to="MirrorTiles/@Area2D@203662" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203663" to="MirrorTiles/@Area2D@203663" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203664" to="MirrorTiles/@Area2D@203664" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203665" to="MirrorTiles/@Area2D@203665" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203666" to="MirrorTiles/@Area2D@203666" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203667" to="MirrorTiles/@Area2D@203667" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203668" to="MirrorTiles/@Area2D@203668" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203669" to="MirrorTiles/@Area2D@203669" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203670" to="MirrorTiles/@Area2D@203670" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203671" to="MirrorTiles/@Area2D@203671" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203672" to="MirrorTiles/@Area2D@203672" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203673" to="MirrorTiles/@Area2D@203673" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203674" to="MirrorTiles/@Area2D@203674" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203675" to="MirrorTiles/@Area2D@203675" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203676" to="MirrorTiles/@Area2D@203676" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203677" to="MirrorTiles/@Area2D@203677" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203678" to="MirrorTiles/@Area2D@203678" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203679" to="MirrorTiles/@Area2D@203679" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203680" to="MirrorTiles/@Area2D@203680" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203681" to="MirrorTiles/@Area2D@203681" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203682" to="MirrorTiles/@Area2D@203682" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203683" to="MirrorTiles/@Area2D@203683" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203684" to="MirrorTiles/@Area2D@203684" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203685" to="MirrorTiles/@Area2D@203685" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203686" to="MirrorTiles/@Area2D@203686" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203687" to="MirrorTiles/@Area2D@203687" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203688" to="MirrorTiles/@Area2D@203688" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203689" to="MirrorTiles/@Area2D@203689" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203690" to="MirrorTiles/@Area2D@203690" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203691" to="MirrorTiles/@Area2D@203691" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203692" to="MirrorTiles/@Area2D@203692" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203693" to="MirrorTiles/@Area2D@203693" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203694" to="MirrorTiles/@Area2D@203694" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203695" to="MirrorTiles/@Area2D@203695" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203696" to="MirrorTiles/@Area2D@203696" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203697" to="MirrorTiles/@Area2D@203697" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@203698" to="MirrorTiles/@Area2D@203698" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@205024" to="MirrorTiles/@Area2D@205024" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@205025" to="MirrorTiles/@Area2D@205025" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@205026" to="MirrorTiles/@Area2D@205026" method="_on_body_entered"]
+[connection signal="body_entered" from="MirrorTiles/@Area2D@205027" to="MirrorTiles/@Area2D@205027" method="_on_body_entered"]
+[connection signal="win_clicked" from="WinScreen" to="." method="_on_win_screen_win_clicked"]

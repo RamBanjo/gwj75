@@ -1,0 +1,113 @@
+[gd_scene load_steps=14 format=4 uid="uid://b2ro52aob8afx"]
+
+[ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_63388"]
+[ext_resource type="PackedScene" uid="uid://o7i27w8pd8yd" path="res://scenes/levels/6-corpse_bridge.tscn" id="2_vh8l2"]
+[ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="3_vx0ds"]
+[ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="4_busnx"]
+[ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="5_h6nmj"]
+[ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="6_ovgua"]
+[ext_resource type="PackedScene" uid="uid://bko46rodpekgd" path="res://scenes/keys/red/red_key.tscn" id="7_p7ib8"]
+[ext_resource type="PackedScene" uid="uid://o0d2nqbm33mw" path="res://scenes/doors/red/unlocked_red_door.tscn" id="8_r0s1a"]
+[ext_resource type="PackedScene" uid="uid://m56d7cor31ag" path="res://scenes/canvases/win_screen.tscn" id="9_rsh38"]
+[ext_resource type="PackedScene" uid="uid://12jd6q2hupeq" path="res://scenes/canvases/undo_hint.tscn" id="10_7p2vc"]
+[ext_resource type="PackedScene" uid="uid://cbu5uxgq3qac5" path="res://scenes/canvases/mirror_drop_hint.tscn" id="11_nhq3a"]
+[ext_resource type="PackedScene" uid="uid://jduxfwufml56" path="res://scenes/canvases/mirror_hold_hint.tscn" id="12_l26q8"]
+[ext_resource type="PackedScene" uid="uid://dkiiwqki64hny" path="res://scenes/doors/red/locked_red_door.tscn" id="13_wf3sp"]
+
+[node name="Node2D" type="Node2D"]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_63388")
+next_stage = ExtResource("2_vh8l2")
+
+[node name="ForegroundTiles" parent="." instance=ExtResource("3_vx0ds")]
+tile_map_data = PackedByteArray("AAAQAAIAAQAFAAQAAAAQAAEAAQACAAMAAAAPAAIAAQAAAAQAAAAPAAEAAQABAAMAAAAOAAIAAQACAAEAAAAOAAEAAQACAAEAAAAEAAIAAQABAAQAAAAEAAEAAQABAAMAAAADAAIAAQABAAQAAAADAAEAAQAEAAMAAAACAAIAAQABAAQAAAACAAEAAQABAAMAAAABAAIAAQADAAQAAAABAAEAAQADAAMAAAAOAAUAAQAFAAQAAAAOAAQAAQAFAAMAAAAOAAMAAQACAAIAAAAJAAcAAQAHAAIAAAADAAcAAQAEAAIAAAADAAYAAQAHAAEAAAADAAUAAQAEAAEAAAAAAAAAAQAAAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQABAAAAAAAEAAAAAQABAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQABAAAAAAAQAAAAAQABAAAAAAARAAAAAQACAAAAAAARAAEAAQACAAEAAAARAAIAAQACAAEAAAARAAMAAQACAAEAAAARAAQAAQACAAEAAAARAAUAAQACAAEAAAARAAYAAQACAAEAAAARAAcAAQACAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAQAAQAAAAEAAAAAAAUAAQAAAAEAAAAAAAYAAQAAAAEAAAAAAAcAAQAAAAEAAAARAAkAAQAFAAMAAAARAAgAAQACAAIAAAAQAAkAAQABAAMAAAAQAAgAAQABAAIAAAAPAAkAAQAEAAMAAAAPAAgAAQABAAIAAAAOAAkAAQAEAAMAAAAOAAgAAQABAAIAAAANAAkAAQABAAMAAAANAAgAAQABAAIAAAAMAAkAAQABAAMAAAAMAAgAAQABAAIAAAALAAkAAQAEAAMAAAALAAgAAQABAAIAAAAKAAkAAQAEAAMAAAAKAAgAAQABAAIAAAAJAAkAAQABAAMAAAAJAAgAAQABAAIAAAAIAAkAAQAEAAMAAAAIAAgAAQABAAIAAAAHAAkAAQABAAMAAAAHAAgAAQABAAIAAAAGAAkAAQABAAMAAAAGAAgAAQABAAIAAAAFAAkAAQAEAAMAAAAFAAgAAQABAAIAAAAEAAkAAQABAAMAAAAEAAgAAQABAAIAAAADAAkAAQABAAMAAAADAAgAAQABAAIAAAACAAkAAQAEAAMAAAACAAgAAQABAAIAAAABAAkAAQAEAAMAAAABAAgAAQABAAIAAAAAAAkAAQADAAMAAAAAAAgAAQAAAAIAAAARAAoAAQAFAAQAAAAQAAoAAQABAAQAAAAPAAoAAQABAAQAAAAOAAoAAQABAAQAAAANAAoAAQAEAAQAAAAMAAoAAQAEAAQAAAALAAoAAQABAAQAAAAKAAoAAQABAAQAAAAJAAoAAQABAAQAAAAIAAoAAQABAAQAAAAHAAoAAQABAAQAAAAGAAoAAQABAAQAAAAFAAoAAQABAAQAAAAEAAoAAQAEAAQAAAADAAoAAQABAAQAAAACAAoAAQAEAAQAAAABAAoAAQAEAAQAAAAAAAoAAQAAAAQAAAAKAAEAAQABAAMAAAAKAAIAAQAEAAQAAAAKAAAAAQABAAAAAAAIAAAAAQABAAAAAAAIAAEAAQAEAAMAAAAIAAIAAQABAAQAAAAJAAAAAQABAAAAAAAJAAEAAQABAAMAAAAJAAIAAQAEAAQAAAAFAAAAAQABAAAAAAAGAAAAAQABAAAAAAAHAAAAAQABAAAAAAAHAAIAAQAEAAQAAAAHAAEAAQABAAMAAAAGAAIAAQABAAQAAAAGAAEAAQABAAMAAAAFAAIAAQAEAAQAAAAFAAEAAQAEAAMAAAAJAAYAAQAEAAEAAAAJAAUAAQAHAAEAAAAMAAMAAQAAAAIAAAAMAAQAAQAAAAMAAAAMAAUAAQAAAAQAAAANAAMAAQABAAIAAAANAAQAAQABAAMAAAANAAUAAQABAAQAAAAMAAAAAQACAAAAAAAMAAEAAQACAAEAAAAMAAIAAQACAAEAAAALAAAAAQABAAAAAAALAAIAAQACAAQAAAALAAEAAQAFAAMAAAAGAAMAAQAEAAAAAAAGAAQAAQAEAAEAAAAGAAUAAQAHAAEAAAACAAcAAQAHAAIAAAACAAYAAQAHAAEAAAACAAUAAQAIAAQAAAACAAQAAQAIAAQAAAACAAMAAQAEAAAAAAABAAcAAQAGAAIAAAABAAYAAQAGAAEAAAABAAUAAQADAAEAAAABAAQAAQADAAEAAAAFAAQAAQAHAAEAAAAFAAMAAQAEAAAAAAADAAQAAQAHAAEAAAADAAMAAQAHAAAAAAAFAAcAAQAEAAIAAAAFAAYAAQAHAAEAAAAFAAUAAQAHAAEAAAAEAAcAAQAHAAIAAAAEAAYAAQAHAAEAAAAIAAcAAQAHAAIAAAAIAAYAAQAEAAEAAAAHAAcAAQAHAAIAAAAHAAYAAQAHAAEAAAAGAAcAAQAEAAIAAAAGAAYAAQAHAAEAAAAIAAUAAQAIAAQAAAAIAAQAAQAIAAQAAAAIAAMAAQAIAAQAAAAHAAUAAQAEAAEAAAAHAAQAAQAEAAEAAAAHAAMAAQAHAAAAAAALAAQAAQAIAAEAAAALAAMAAQAIAAAAAAAKAAQAAQAHAAEAAAAKAAMAAQAEAAAAAAAJAAQAAQAEAAEAAAAJAAMAAQAEAAAAAAALAAcAAQAEAAIAAAALAAYAAQAJAAMAAAALAAUAAQAIAAEAAAAKAAcAAQAEAAIAAAAKAAYAAQAEAAEAAAAKAAUAAQAHAAEAAAAQAAcAAQAFAAIAAAAQAAYAAQAFAAEAAAAPAAcAAQAEAAIAAAAPAAYAAQAKAAMAAAAOAAcAAQAEAAIAAAAOAAYAAQAEAAAAAAANAAcAAQAHAAIAAAANAAYAAQAEAAAAAAAMAAcAAQAHAAIAAAAMAAYAAQAHAAAAAAAQAAUAAQAFAAEAAAAQAAQAAQAFAAEAAAAQAAMAAQAIAAAAAAAPAAUAAQAGAAEAAAAPAAQAAQADAAEAAAAPAAMAAQAGAAAAAAAEAAUAAQAIAAQAAAAEAAQAAQAIAAQAAAAEAAMAAQAIAAQAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("4_busnx")]
+position = Vector2(128, 456)
+
+[node name="GoalFloor" parent="." instance=ExtResource("5_h6nmj")]
+position = Vector2(1024, 224)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+
+[node name="TutorialCanvas" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="TutorialCanvas"]
+light_mask = 3
+visibility_layer = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -72.0
+offset_right = 448.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("6_ovgua")
+theme_override_font_sizes/font_size = 48
+text = "Press R to Reset Level"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Key" parent="TutorialCanvas" instance=ExtResource("7_p7ib8")]
+position = Vector2(480, 224)
+
+[node name="Door" parent="TutorialCanvas" instance=ExtResource("8_r0s1a")]
+position = Vector2(416, 224)
+
+[node name="Door3" parent="TutorialCanvas" instance=ExtResource("8_r0s1a")]
+position = Vector2(480, 288)
+
+[node name="WinScreen" parent="." instance=ExtResource("9_rsh38")]
+
+[node name="UndoHint" parent="." instance=ExtResource("10_7p2vc")]
+
+[node name="MirrorDropHint" parent="." instance=ExtResource("11_nhq3a")]
+
+[node name="MirrorHoldHint" parent="." instance=ExtResource("12_l26q8")]
+
+[node name="Key" parent="." instance=ExtResource("7_p7ib8")]
+position = Vector2(160, 224)
+
+[node name="Key2" parent="." instance=ExtResource("7_p7ib8")]
+position = Vector2(672, 224)
+
+[node name="Door" parent="." instance=ExtResource("8_r0s1a")]
+position = Vector2(672, 288)
+
+[node name="Door2" parent="." instance=ExtResource("8_r0s1a")]
+position = Vector2(608, 224)
+
+[node name="Door3" parent="." instance=ExtResource("8_r0s1a")]
+position = Vector2(736, 224)
+
+[node name="Door4" parent="." instance=ExtResource("8_r0s1a")]
+position = Vector2(96, 352)
+
+[node name="Door5" parent="." instance=ExtResource("8_r0s1a")]
+position = Vector2(96, 288)
+
+[node name="Door6" parent="." instance=ExtResource("13_wf3sp")]
+position = Vector2(224, 352)
+
+[node name="Door7" parent="." instance=ExtResource("13_wf3sp")]
+position = Vector2(224, 288)
+
+[node name="Door8" parent="." instance=ExtResource("13_wf3sp")]
+position = Vector2(1024, 352)
+
+[node name="Door9" parent="." instance=ExtResource("13_wf3sp")]
+position = Vector2(416, 288)
+
+[node name="Door10" parent="." instance=ExtResource("13_wf3sp")]
+position = Vector2(352, 224)
+
+[node name="Door11" parent="." instance=ExtResource("13_wf3sp")]
+position = Vector2(480, 352)
+
+[connection signal="win_clicked" from="WinScreen" to="." method="_on_win_screen_win_clicked"]

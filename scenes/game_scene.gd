@@ -121,21 +121,26 @@ func _on_player_win():
 	pass
 	
 func load_next_stage():
+	
+	reset_statics_before_load()
+	#TODO: Get the Stage Object to switch to from the next stage variable.
+	get_tree().change_scene_to_packed(next_stage)
+
+func reset_statics_before_load():
 	reset_unlockable_things()
 	UnlockerObject.reset_toggle_count()
 	PlayerCharacter.reset_death_records()
 	player_has_won = false
 	current_scene_instance = null
-	holding_mirror = false
-	
-	#TODO: Get the Stage Object to switch to from the next stage variable.
-	get_tree().change_scene_to_packed(next_stage)
+	holding_mirror = false	
 
 func _unhandled_key_input(event: InputEvent) -> void:
 	if event.is_action_pressed("undo_death") and not player_has_won:
 		undo_death()
 	if event.is_action_pressed("take_mirror") and (holding_mirror or hovering_mirror):
 		toggle_reflect()
+	if event.is_action_pressed("restart_level") and not player_has_won:
+		restart_level()
 
 func _on_player_die():
 	
@@ -263,3 +268,7 @@ func _on_mirror_movement_detected():
 
 func _on_win_screen_win_clicked() -> void:
 	load_next_stage()
+	
+func restart_level():
+	reset_statics_before_load()
+	get_tree().reload_current_scene()

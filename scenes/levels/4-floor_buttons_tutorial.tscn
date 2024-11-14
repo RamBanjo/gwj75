@@ -1,7 +1,7 @@
 [gd_scene load_steps=14 format=4 uid="uid://cx3xqirn6inya"]
 
 [ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_w37qg"]
-[ext_resource type="PackedScene" uid="uid://dam5v1bwc83ki" path="res://scenes/levels/5-undo.tscn" id="2_uvwsb"]
+[ext_resource type="PackedScene" uid="uid://dam5v1bwc83ki" path="res://scenes/levels/5-1-undo.tscn" id="2_uvwsb"]
 [ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="3_okvdn"]
 [ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="4_sp5td"]
 [ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="5_j6csr"]
