@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://12jd6q2hupeq"]
+
+[ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="1_ucf1h"]
+
+[node name="UndoHint" type="CanvasLayer"]
+visible = false
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -411.5
+offset_right = 411.5
+offset_bottom = 132.0
+grow_horizontal = 2
+theme = ExtResource("1_ucf1h")
+theme_override_font_sizes/font_size = 48
+text = "Press Z to Undo"
+horizontal_alignment = 1
+vertical_alignment = 1

@@ -1,13 +1,14 @@
-[gd_resource type="TileSet" load_steps=12 format=3 uid="uid://ck8shmn5hf0m"]
+[gd_resource type="TileSet" load_steps=13 format=3 uid="uid://ck8shmn5hf0m"]
 
 [ext_resource type="PackedScene" uid="uid://c6d8r5tmam7hi" path="res://scenes/wall.tscn" id="1_cwypf"]
 [ext_resource type="PackedScene" uid="uid://d3q0slgc8gwnr" path="res://scenes/boxes/physics_box.tscn" id="2_1m302"]
 [ext_resource type="PackedScene" uid="uid://dk2hh7n5tvge4" path="res://scenes/boxes/player_corpse.tscn" id="2_6jdif"]
-[ext_resource type="PackedScene" uid="uid://dkiiwqki64hny" path="res://scenes/doors/locked_red_door.tscn" id="3_10ahp"]
+[ext_resource type="PackedScene" uid="uid://dkiiwqki64hny" path="res://scenes/doors/red/locked_red_door.tscn" id="3_10ahp"]
 [ext_resource type="Texture2D" uid="uid://d32aep2gwt1pw" path="res://sprites/wall_and_flooring.png" id="4_cgh0o"]
-[ext_resource type="PackedScene" uid="uid://o0d2nqbm33mw" path="res://scenes/doors/unlocked_red_door.tscn" id="5_68cqc"]
-[ext_resource type="PackedScene" uid="uid://6pq6ce6qamxo" path="res://scenes/floor_buttons/red_floor_button.tscn" id="7_oje1x"]
-[ext_resource type="PackedScene" uid="uid://bko46rodpekgd" path="res://scenes/keys/red_key.tscn" id="8_ibxxn"]
+[ext_resource type="PackedScene" uid="uid://o0d2nqbm33mw" path="res://scenes/doors/red/unlocked_red_door.tscn" id="5_68cqc"]
+[ext_resource type="PackedScene" uid="uid://6pq6ce6qamxo" path="res://scenes/floor_buttons/red/red_floor_button.tscn" id="7_oje1x"]
+[ext_resource type="PackedScene" uid="uid://bko46rodpekgd" path="res://scenes/keys/red/red_key.tscn" id="8_ibxxn"]
+[ext_resource type="PackedScene" uid="uid://cif4nswj6g14" path="res://scenes/death/spike_floor.tscn" id="9_fcqvx"]
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_msa0d"]
 resource_name = "scripted_wall_scenes"
@@ -359,6 +360,7 @@ texture_region_size = Vector2i(64, 64)
 resource_name = "scripted_floor_scenes"
 scenes/1/scene = ExtResource("7_oje1x")
 scenes/2/scene = ExtResource("8_ibxxn")
+scenes/3/scene = ExtResource("9_fcqvx")
 
 [resource]
 tile_size = Vector2i(64, 64)

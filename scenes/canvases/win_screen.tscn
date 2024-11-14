@@ -1,0 +1,57 @@
+[gd_scene load_steps=6 format=3 uid="uid://m56d7cor31ag"]
+
+[ext_resource type="Script" path="res://scenes/canvases/win_screen.gd" id="1_dmk6a"]
+[ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="1_sudly"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_b5ggw"]
+device = -1
+keycode = 4194309
+
+[sub_resource type="InputEventKey" id="InputEventKey_olu5k"]
+device = -1
+keycode = 32
+unicode = 32
+
+[sub_resource type="Shortcut" id="Shortcut_lyvjr"]
+events = [SubResource("InputEventKey_b5ggw"), SubResource("InputEventKey_olu5k")]
+
+[node name="WinScreen" type="CanvasLayer"]
+visible = false
+script = ExtResource("1_dmk6a")
+
+[node name="Label" type="Label" parent="."]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -69.0
+offset_top = -11.5
+offset_right = 69.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_sudly")
+theme_override_font_sizes/font_size = 96
+text = "YOU HAVE WON!!!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AdvanceLevelButton" type="Button" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -200.0
+offset_right = 192.0
+offset_bottom = -133.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_sudly")
+theme_override_font_sizes/font_size = 48
+shortcut = SubResource("Shortcut_lyvjr")
+text = "Next Level"
+
+[connection signal="pressed" from="AdvanceLevelButton" to="." method="_on_advance_level_button_pressed"]

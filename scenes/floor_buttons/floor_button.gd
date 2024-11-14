@@ -3,9 +3,6 @@ class_name FloorButton
 
 @onready var button_sprite = $MySprite
 
-@export var untouched_sprite: Texture2D
-@export var touched_sprite: Texture2D
-
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.

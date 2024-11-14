@@ -52,9 +52,16 @@ func check_collide_box(motion: Vector2):
 
 #When the player dies, record the death position then destroy this, then create a corpse and record the death information in it.
 func die():
-	death_counter += 1
+	
+	#If the player is already dying elsewhere, this prevents them from dying two times at once.
+	if is_dying_player:
+		return
+	
+	
 	is_dying_player = true
 	await get_tree().create_timer(0.01).timeout
+	
+	death_counter += 1
 	player_die.emit()
 	
 	var self_pos = self.position
@@ -96,3 +103,7 @@ func get_motion():
 	motion.x = (Input.get_action_strength("move_right") - Input.get_action_strength("move_left"))
 	motion.y = (Input.get_action_strength("move_down") - Input.get_action_strength("move_up"))
 	return motion
+
+static func reset_death_records():
+	player_death_records.clear()
+	death_counter = 0

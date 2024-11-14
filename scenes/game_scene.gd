@@ -5,17 +5,24 @@ class_name GameStage
 @onready var undo_hint = $UndoHint
 @onready var mirror_hint = $MirrorDropHint
 @onready var mirror_hold_hint = $MirrorHoldHint
+@onready var tutorial_canvas = $TutorialCanvas
 
 @onready var camera = $Camera2D
 
 static var player_object = preload("res://scenes/player.tscn")
 
 const UNLOCKABLE_THINGS_IN_SCENE : Dictionary = {
-	UnlockerObject.UnlockColor.RED: []
+	UnlockerObject.UnlockColor.RED: [],
+	UnlockerObject.UnlockColor.GREEN: [],
+	UnlockerObject.UnlockColor.YELLOW: [],
+	UnlockerObject.UnlockColor.BLUE: []
 }
 
 static var unlockable_things_by_color : Dictionary = {
-	UnlockerObject.UnlockColor.RED: []
+	UnlockerObject.UnlockColor.RED: [],
+	UnlockerObject.UnlockColor.GREEN: [],
+	UnlockerObject.UnlockColor.YELLOW: [],
+	UnlockerObject.UnlockColor.BLUE: []
 }
 
 static var player_has_won = false
@@ -92,7 +99,7 @@ func _process(delta: float) -> void:
 	pass
 
 func reset_unlockable_things():
-	unlockable_things_by_color = UNLOCKABLE_THINGS_IN_SCENE.duplicate()
+	unlockable_things_by_color = UNLOCKABLE_THINGS_IN_SCENE.duplicate(true)
 
 func _on_unlocker_activated(my_color: UnlockerObject.UnlockColor):
 	
@@ -108,11 +115,15 @@ func _on_player_win():
 	player_has_won = true
 	win_screen.show()
 	
+	if tutorial_canvas:
+		tutorial_canvas.hide()
+	
 	pass
 	
-func load_new_stage(stage_object: PackedScene):
+func load_next_stage():
 	reset_unlockable_things()
 	UnlockerObject.reset_toggle_count()
+	PlayerCharacter.reset_death_records()
 	player_has_won = false
 	current_scene_instance = null
 	holding_mirror = false
@@ -127,6 +138,9 @@ func _unhandled_key_input(event: InputEvent) -> void:
 		toggle_reflect()
 
 func _on_player_die():
+	
+	#print(PlayerCharacter.death_counter)
+	
 	var undoable_in_scene = get_tree().get_nodes_in_group("undoable")
 	
 	for undoable_thing in undoable_in_scene:
@@ -187,6 +201,7 @@ func undo_death():
 			potential_unlocker.check_touched()
 	
 	#Finally, reduce the death counter by 1.
+	#print(PlayerCharacter.death_counter)
 	PlayerCharacter.death_counter -= 1
 	if PlayerCharacter.death_counter <= 0:
 		undo_hint.hide()
@@ -244,3 +259,7 @@ func _on_mirror_movement_detected():
 				
 	mirror_hold_hint.hide()
 	hovering_mirror = false
+
+
+func _on_win_screen_win_clicked() -> void:
+	load_next_stage()

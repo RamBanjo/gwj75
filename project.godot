@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Godot Wild Jam 75 - Soulkobon"
-run/main_scene="res://scenes/levels/test_scene.tscn"
+run/main_scene="res://scenes/levels/1-movement_tutorial.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
 

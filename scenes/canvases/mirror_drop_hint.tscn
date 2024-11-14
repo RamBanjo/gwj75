@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cbu5uxgq3qac5"]
+
+[ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="1_0ar8a"]
+
+[node name="MirrorDropHint" type="CanvasLayer"]
+visible = false
+
+[node name="Label" type="Label" parent="."]
+light_mask = 3
+visibility_layer = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -411.5
+offset_top = -132.0
+offset_right = 411.5
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_0ar8a")
+theme_override_font_sizes/font_size = 48
+text = "Press SPACE to Drop Mirror"
+horizontal_alignment = 1
+vertical_alignment = 1

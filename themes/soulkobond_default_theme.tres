@@ -1,0 +1,11 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://bhr6k16rk2ein"]
+
+[ext_resource type="FontFile" uid="uid://dhdeawkytd4xc" path="res://fonts/Patua_One/PatuaOne-Regular.ttf" id="1_0oxbl"]
+[ext_resource type="FontFile" uid="uid://cxoxivxhopm4r" path="res://fonts/Gentium_Plus/GentiumPlus-Regular.ttf" id="1_mkfaq"]
+
+[resource]
+default_font = ExtResource("1_0oxbl")
+default_font_size = 16
+TitleLabel/base_type = &"Label"
+TitleLabel/font_sizes/font_size = 32
+TitleLabel/fonts/font = ExtResource("1_mkfaq")

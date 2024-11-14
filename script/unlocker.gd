@@ -16,7 +16,7 @@ var toggled = false
 signal toggle_count_changed
 
 enum UnlockColor{
-	RED
+	RED, GREEN, BLUE, YELLOW
 }
 
 const DEFAULT_TOGGLE_COUNTER : Dictionary = {

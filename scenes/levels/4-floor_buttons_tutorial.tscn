@@ -1,0 +1,94 @@
+[gd_scene load_steps=14 format=4 uid="uid://cx3xqirn6inya"]
+
+[ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_w37qg"]
+[ext_resource type="PackedScene" uid="uid://dam5v1bwc83ki" path="res://scenes/levels/5-undo.tscn" id="2_uvwsb"]
+[ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="3_okvdn"]
+[ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="4_sp5td"]
+[ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="5_j6csr"]
+[ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="6_clgb7"]
+[ext_resource type="PackedScene" uid="uid://m56d7cor31ag" path="res://scenes/canvases/win_screen.tscn" id="9_0ptmy"]
+[ext_resource type="PackedScene" uid="uid://12jd6q2hupeq" path="res://scenes/canvases/undo_hint.tscn" id="10_d83a1"]
+[ext_resource type="PackedScene" uid="uid://cbu5uxgq3qac5" path="res://scenes/canvases/mirror_drop_hint.tscn" id="11_8gqqj"]
+[ext_resource type="PackedScene" uid="uid://3nys48i57qjr" path="res://scenes/doors/red/counting_locked_red_door.tscn" id="11_yvrfi"]
+[ext_resource type="PackedScene" uid="uid://d3q0slgc8gwnr" path="res://scenes/boxes/physics_box.tscn" id="12_0ti4l"]
+[ext_resource type="PackedScene" uid="uid://jduxfwufml56" path="res://scenes/canvases/mirror_hold_hint.tscn" id="12_ldgun"]
+[ext_resource type="PackedScene" uid="uid://6pq6ce6qamxo" path="res://scenes/floor_buttons/red/red_floor_button.tscn" id="13_n8lm3"]
+
+[node name="Node2D" type="Node2D"]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_w37qg")
+next_stage = ExtResource("2_uvwsb")
+
+[node name="ForegroundTiles" parent="." instance=ExtResource("3_okvdn")]
+tile_map_data = PackedByteArray("AAAQAAIAAQAFAAQAAAAQAAEAAQACAAMAAAAPAAIAAQAAAAQAAAAPAAEAAQABAAMAAAAOAAIAAQACAAEAAAAOAAEAAQACAAEAAAAEAAIAAQABAAQAAAAEAAEAAQABAAMAAAADAAIAAQABAAQAAAADAAEAAQAEAAMAAAACAAIAAQABAAQAAAACAAEAAQABAAMAAAABAAIAAQADAAQAAAABAAEAAQADAAMAAAAQAAcAAQAIAAIAAAAQAAYAAQAIAAEAAAAQAAUAAQAFAAEAAAAQAAQAAQAIAAEAAAAQAAMAAQAIAAAAAAAPAAcAAQAHAAIAAAAPAAYAAQAKAAEAAAAPAAUAAQADAAEAAAAPAAQAAQADAAEAAAAPAAMAAQAGAAAAAAAOAAcAAQAHAAIAAAAOAAYAAQAHAAAAAAAOAAUAAQAFAAQAAAAOAAQAAQAFAAMAAAAOAAMAAQACAAIAAAANAAcAAQAHAAIAAAANAAYAAQAEAAAAAAAMAAcAAQAEAAIAAAAMAAYAAQAEAAAAAAALAAcAAQAEAAIAAAALAAYAAQAJAAMAAAAKAAcAAQAEAAIAAAAKAAYAAQAHAAEAAAAJAAcAAQAHAAIAAAAIAAcAAQAEAAIAAAAHAAcAAQAEAAIAAAAGAAcAAQAEAAIAAAAFAAcAAQAEAAIAAAAEAAcAAQAHAAIAAAAEAAYAAQAHAAEAAAAEAAUAAQAEAAEAAAAEAAQAAQAHAAEAAAAEAAMAAQAHAAAAAAADAAcAAQAHAAIAAAADAAYAAQAEAAEAAAADAAUAAQAIAAQAAAADAAQAAQAIAAQAAAADAAMAAQAIAAQAAAACAAcAAQAHAAIAAAACAAYAAQAHAAEAAAACAAUAAQAEAAEAAAACAAQAAQAEAAEAAAACAAMAAQAEAAAAAAABAAcAAQAGAAIAAAABAAYAAQAGAAEAAAABAAUAAQAGAAEAAAABAAQAAQAGAAEAAAABAAMAAQADAAAAAAAAAAAAAQAAAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQABAAAAAAAEAAAAAQABAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQABAAAAAAAQAAAAAQABAAAAAAARAAAAAQACAAAAAAARAAEAAQACAAEAAAARAAIAAQACAAEAAAARAAMAAQACAAEAAAARAAQAAQACAAEAAAARAAUAAQACAAEAAAARAAYAAQACAAEAAAARAAcAAQACAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAQAAQAAAAEAAAAAAAUAAQAAAAEAAAAAAAYAAQAAAAEAAAAAAAcAAQAAAAEAAAARAAkAAQAFAAMAAAARAAgAAQACAAIAAAAQAAkAAQABAAMAAAAQAAgAAQABAAIAAAAPAAkAAQAEAAMAAAAPAAgAAQABAAIAAAAOAAkAAQAEAAMAAAAOAAgAAQABAAIAAAANAAkAAQABAAMAAAANAAgAAQABAAIAAAAMAAkAAQABAAMAAAAMAAgAAQABAAIAAAALAAkAAQAEAAMAAAALAAgAAQABAAIAAAAKAAkAAQAEAAMAAAAKAAgAAQABAAIAAAAJAAkAAQABAAMAAAAJAAgAAQABAAIAAAAIAAkAAQAEAAMAAAAIAAgAAQABAAIAAAAHAAkAAQABAAMAAAAHAAgAAQABAAIAAAAGAAkAAQABAAMAAAAGAAgAAQABAAIAAAAFAAkAAQAEAAMAAAAFAAgAAQABAAIAAAAEAAkAAQABAAMAAAAEAAgAAQABAAIAAAADAAkAAQABAAMAAAADAAgAAQABAAIAAAACAAkAAQAEAAMAAAACAAgAAQABAAIAAAABAAkAAQAEAAMAAAABAAgAAQABAAIAAAAAAAkAAQADAAMAAAAAAAgAAQAAAAIAAAARAAoAAQAFAAQAAAAQAAoAAQABAAQAAAAPAAoAAQABAAQAAAAOAAoAAQABAAQAAAANAAoAAQAEAAQAAAAMAAoAAQAEAAQAAAALAAoAAQABAAQAAAAKAAoAAQABAAQAAAAJAAoAAQABAAQAAAAIAAoAAQABAAQAAAAHAAoAAQABAAQAAAAGAAoAAQABAAQAAAAFAAoAAQABAAQAAAAEAAoAAQAEAAQAAAADAAoAAQABAAQAAAACAAoAAQAEAAQAAAABAAoAAQAEAAQAAAAAAAoAAQAAAAQAAAAKAAEAAQABAAMAAAAKAAIAAQAEAAQAAAAKAAMAAQAEAAAAAAAKAAQAAQAEAAEAAAAKAAUAAQAEAAEAAAAKAAAAAQABAAAAAAAIAAMAAQAHAAAAAAAJAAMAAQAIAAQAAAAIAAAAAQABAAAAAAAIAAEAAQAEAAMAAAAIAAIAAQABAAQAAAAJAAAAAQABAAAAAAAJAAEAAQABAAMAAAAJAAIAAQAEAAQAAAAFAAAAAQABAAAAAAAGAAAAAQABAAAAAAAHAAAAAQABAAAAAAAHAAIAAQAEAAQAAAAHAAEAAQABAAMAAAAGAAIAAQABAAQAAAAGAAEAAQABAAMAAAAFAAIAAQAEAAQAAAAFAAEAAQAEAAMAAAAJAAYAAQAHAAEAAAAJAAUAAQAIAAQAAAAJAAQAAQAIAAQAAAAIAAYAAQAHAAEAAAAIAAUAAQAEAAEAAAAIAAQAAQAHAAEAAAAHAAYAAQAHAAEAAAAHAAUAAQAEAAEAAAAHAAQAAQAHAAEAAAAHAAMAAQAEAAAAAAAGAAYAAQAHAAEAAAAGAAUAAQAIAAQAAAAGAAQAAQAIAAQAAAAGAAMAAQAIAAQAAAAFAAYAAQAEAAEAAAAFAAUAAQAEAAEAAAAFAAQAAQAEAAEAAAAFAAMAAQAEAAAAAAAMAAMAAQAAAAIAAAAMAAQAAQAAAAMAAAAMAAUAAQAAAAQAAAANAAMAAQABAAIAAAANAAQAAQABAAMAAAANAAUAAQABAAQAAAAMAAAAAQACAAAAAAAMAAEAAQACAAEAAAAMAAIAAQACAAEAAAALAAAAAQABAAAAAAALAAUAAQAFAAEAAAALAAQAAQAIAAEAAAALAAMAAQAIAAAAAAALAAIAAQACAAQAAAALAAEAAQAFAAMAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("4_sp5td")]
+light_mask = 1
+visibility_layer = 1
+position = Vector2(128, 456)
+
+[node name="GoalFloor" parent="." instance=ExtResource("5_j6csr")]
+position = Vector2(1024, 224)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+
+[node name="TutorialCanvas" type="CanvasLayer" parent="."]
+
+[node name="Label2" type="Label" parent="TutorialCanvas"]
+light_mask = 3
+visibility_layer = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -448.0
+offset_top = -72.0
+offset_right = 448.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("6_clgb7")
+theme_override_font_sizes/font_size = 48
+text = "Boxes can hold floor buttons."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="WinScreen" parent="." instance=ExtResource("9_0ptmy")]
+
+[node name="UndoHint" parent="." instance=ExtResource("10_d83a1")]
+
+[node name="MirrorDropHint" parent="." instance=ExtResource("11_8gqqj")]
+
+[node name="MirrorHoldHint" parent="." instance=ExtResource("12_ldgun")]
+
+[node name="CountingDoor" parent="." instance=ExtResource("11_yvrfi")]
+position = Vector2(1024, 352)
+unlock_number = 4
+
+[node name="PhysicsBox" parent="." instance=ExtResource("12_0ti4l")]
+position = Vector2(128, 352)
+
+[node name="PhysicsBox2" parent="." instance=ExtResource("12_0ti4l")]
+position = Vector2(320, 352)
+
+[node name="PhysicsBox3" parent="." instance=ExtResource("12_0ti4l")]
+position = Vector2(512, 352)
+
+[node name="PhysicsBox4" parent="." instance=ExtResource("12_0ti4l")]
+position = Vector2(704, 352)
+
+[node name="RedFloorButton" parent="." instance=ExtResource("13_n8lm3")]
+position = Vector2(128, 224)
+
+[node name="RedFloorButton2" parent="." instance=ExtResource("13_n8lm3")]
+position = Vector2(320, 224)
+
+[node name="RedFloorButton3" parent="." instance=ExtResource("13_n8lm3")]
+position = Vector2(512, 224)
+
+[node name="RedFloorButton4" parent="." instance=ExtResource("13_n8lm3")]
+position = Vector2(704, 224)
+
+[connection signal="win_clicked" from="WinScreen" to="." method="_on_win_screen_win_clicked"]
