@@ -20,9 +20,12 @@ func _process(delta: float) -> void:
 
 func spawn_player():
 	
+	if not GameStage.current_scene_instance:
+		return
 	#We check if the spawn point is obstructed. If it is, then we don't spawn anything.
 	if spawn_point.has_overlapping_bodies():
-		print("Can't spawn new player because overlap")
+		print(name, spawn_point.get_overlapping_bodies())
+		#print("Can't spawn new player because overlap")
 		return
 		
 	#if the SpawnPoint is not overlapping a body, spawns a Player object.

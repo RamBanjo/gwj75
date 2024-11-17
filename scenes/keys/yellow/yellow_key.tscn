@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://cix3pgkeadtpt"]
+
+[ext_resource type="Script" path="res://scenes/keys/key.gd" id="1_mfhwj"]
+[ext_resource type="SpriteFrames" uid="uid://d0j6rdvbi7q01" path="res://sprites/red_key_animated.tres" id="2_66bk7"]
+[ext_resource type="PackedScene" uid="uid://ifqydqg78xig" path="res://scenes/visual_aid.tscn" id="3_3qovd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_eud3h"]
+radius = 32.0
+
+[node name="Key" type="Area2D" groups=["undoable", "unlocker"]]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_mfhwj")
+bob_frequency = 0.01
+destroy_self_on_touch = true
+my_color = 3
+delete_potential = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_eud3h")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+sprite_frames = ExtResource("2_66bk7")
+animation = &"yellow"
+
+[node name="VisualAid" parent="." instance=ExtResource("3_3qovd")]
+text = "[center][color=FFFE77][outline_size=10]⬣[/outline_size][/color][/center]"
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

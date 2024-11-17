@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://c2kqiigrnihnm"]
+
+[ext_resource type="Script" path="res://scenes/floor_buttons/floor_button.gd" id="1_3mxy5"]
+[ext_resource type="SpriteFrames" uid="uid://x3l08bevypcy" path="res://sprites/green_button_animated.tres" id="2_s1pwf"]
+[ext_resource type="PackedScene" uid="uid://ifqydqg78xig" path="res://scenes/visual_aid.tscn" id="3_q7je5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2yac6"]
+radius = 16.0
+
+[node name="RedFloorButton" type="Area2D" groups=["undoable", "unlocker"]]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_3mxy5")
+box_interactable = true
+my_color = 1
+delete_potential = false
+
+[node name="MySprite" type="AnimatedSprite2D" parent="."]
+light_mask = 3
+visibility_layer = 3
+sprite_frames = ExtResource("2_s1pwf")
+animation = &"unpressed"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_2yac6")
+
+[node name="VisualAid" parent="." instance=ExtResource("3_q7je5")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]

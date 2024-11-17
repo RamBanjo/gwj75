@@ -1,4 +1,5 @@
 extends BoxObject
+class_name PhysicsBox
 
 @export var is_corpse : bool = false
 @export var delete_potential : bool = true

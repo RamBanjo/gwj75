@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://ds3nwy4kc77xe"]
+
+[ext_resource type="SpriteFrames" uid="uid://biumo6ppxhbv7" path="res://sprites/player_animation.tres" id="1_byqwi"]
+[ext_resource type="Script" path="res://scenes/game_menu/main_menu_player.gd" id="2_rtxpf"]
+
+[node name="MainMenuPlayer" type="AnimatedSprite2D"]
+position = Vector2(224, 72)
+rotation = -0.436332
+scale = Vector2(1.5, 1.5)
+sprite_frames = ExtResource("1_byqwi")
+animation = &"one_frame"
+offset = Vector2(0, -20)
+script = ExtResource("2_rtxpf")
+pulse_frequency = 0.005
+pulse_min = 1.8

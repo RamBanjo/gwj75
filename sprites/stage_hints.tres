@@ -1,0 +1,42 @@
+[gd_resource type="SpriteFrames" load_steps=5 format=3 uid="uid://cajfg7apvekx7"]
+
+[ext_resource type="Texture2D" uid="uid://c8ilu6ww3b3yj" path="res://sprites/hints_assemble.png" id="1_pjrjk"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w2u5w"]
+atlas = ExtResource("1_pjrjk")
+region = Rect2(0, 80, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7dlt3"]
+atlas = ExtResource("1_pjrjk")
+region = Rect2(0, 160, 192, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_n7t6s"]
+atlas = ExtResource("1_pjrjk")
+region = Rect2(0, 0, 192, 80)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w2u5w")
+}],
+"loop": true,
+"name": &"start_mirror",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7dlt3")
+}],
+"loop": true,
+"name": &"stop_mirror",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_n7t6s")
+}],
+"loop": true,
+"name": &"undo",
+"speed": 5.0
+}]

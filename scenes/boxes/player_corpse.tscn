@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dk2hh7n5tvge4"]
+[gd_scene load_steps=5 format=3 uid="uid://dk2hh7n5tvge4"]
 
-[ext_resource type="Script" path="res://scenes/boxes/physics_box.gd" id="1_42tnp"]
-[ext_resource type="Texture2D" uid="uid://bx4hn4u3551j2" path="res://sprites/player_corpse.png" id="2_kcc0l"]
+[ext_resource type="Script" path="res://scenes/boxes/player_corpse.gd" id="1_mvfoa"]
+[ext_resource type="SpriteFrames" uid="uid://d4axcjfimkxc0" path="res://sprites/corpse_sprite.tres" id="2_itjyu"]
+[ext_resource type="PackedScene" uid="uid://cwq2ev4qff881" path="res://scenes/hint_sprite.tscn" id="3_yth1h"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55n1y"]
 size = Vector2(48, 48)
@@ -11,13 +12,19 @@ light_mask = 3
 visibility_layer = 3
 z_index = 1
 motion_mode = 1
-script = ExtResource("1_42tnp")
-is_corpse = true
+script = ExtResource("1_mvfoa")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
 light_mask = 3
 visibility_layer = 3
-texture = ExtResource("2_kcc0l")
+position = Vector2(0, -16)
+sprite_frames = ExtResource("2_itjyu")
+animation = &"right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_55n1y")
+
+[node name="UndoHintSprite" parent="." instance=ExtResource("3_yth1h")]
+visible = true
+position = Vector2(0, -64)
+scale = Vector2(0.5, 0.5)

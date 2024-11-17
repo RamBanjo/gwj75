@@ -1,0 +1,29 @@
+[gd_scene load_steps=7 format=3 uid="uid://bteoeg5ecdjq0"]
+
+[ext_resource type="AudioStream" uid="uid://sa72aigb7jey" path="res://audio/sfx/death_sound.wav" id="1_3qujn"]
+[ext_resource type="Script" path="res://scenes/sound_player.gd" id="1_25548"]
+[ext_resource type="AudioStream" uid="uid://1q3lm7uh181m" path="res://audio/sfx/kenney fighter vo/you_win.ogg" id="2_yqadp"]
+[ext_resource type="AudioStream" uid="uid://bfpcgad66xstq" path="res://audio/イビツ.mp3" id="3_le5g8"]
+[ext_resource type="AudioStream" uid="uid://x5h6rjfmvmce" path="res://audio/sfx/kenney rpg/metalLatch.ogg" id="4_ceyit"]
+[ext_resource type="AudioStream" uid="uid://cpp3dtrvjio4v" path="res://audio/sfx/kenney rpg/doorOpen_1.ogg" id="5_b5bvk"]
+
+[node name="SoundPlayer" type="Node"]
+script = ExtResource("1_25548")
+
+[node name="SoundEffectPlayer" type="Node" parent="."]
+
+[node name="DeathSound" type="AudioStreamPlayer" parent="SoundEffectPlayer"]
+stream = ExtResource("1_3qujn")
+
+[node name="WinSound" type="AudioStreamPlayer" parent="SoundEffectPlayer"]
+stream = ExtResource("2_yqadp")
+
+[node name="SwitchSound" type="AudioStreamPlayer" parent="SoundEffectPlayer"]
+stream = ExtResource("4_ceyit")
+
+[node name="KeySound" type="AudioStreamPlayer" parent="SoundEffectPlayer"]
+stream = ExtResource("5_b5bvk")
+
+[node name="BGMPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_le5g8")
+autoplay = true

@@ -3,13 +3,14 @@ class_name CountingDoorObject
 
 var latest_known_lock_number = 0
 @export var unlock_number = 2
-@onready var my_label = $Label
+@onready var my_label : RichTextLabel = $RichLabel
 
 const LOCK_NUMBER_RECORD_ENTRY = {"lkln": 0, "unlock_num": 2}
 var lock_number_records = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	latest_known_lock_number = UnlockerObject.toggle_count_by_color[my_color]
 	update_my_label()
 	#print(global_lock_number)
@@ -41,7 +42,7 @@ func toggle_lock_state():
 	update_my_label()
 	
 func update_my_label():
-	my_label.text = "{my_number}".format({"my_number":unlock_number})
+	my_label.text = wrap_string_with_richtext_bbcode("{my_number}".format({"my_number":unlock_number}))
 
 func record_death():
 	super.record_death()
@@ -61,3 +62,6 @@ func restore_latest_death_state():
 	unlock_number = latest_record["unlock_num"]
 	
 	update_my_label()
+	
+func wrap_string_with_richtext_bbcode(to_wrap : String):
+	return "[font_size=20]\n[/font_size][center][color=FFFE77][outline_size=10]%s[/outline_size][/color][/center]" % to_wrap

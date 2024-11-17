@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://d4axcjfimkxc0"]
+
+[ext_resource type="Texture2D" uid="uid://ravg27nu0l88" path="res://sprites/player_dead_assembled.png" id="1_c3vj6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6amxa"]
+atlas = ExtResource("1_c3vj6")
+region = Rect2(86, 0, 86, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_h4is3"]
+atlas = ExtResource("1_c3vj6")
+region = Rect2(0, 0, 86, 86)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6amxa")
+}],
+"loop": true,
+"name": &"left",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_h4is3")
+}],
+"loop": false,
+"name": &"right",
+"speed": 5.0
+}]

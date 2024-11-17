@@ -12,6 +12,7 @@ func record_death():
 	
 	new_record["pos_on_death"] = position
 	
+	#print(new_record, "new_box_death_record")
 	my_death_records.append(new_record)
 	
 func restore_latest_death_state():
@@ -21,7 +22,8 @@ func restore_latest_death_state():
 	else:
 		#Otherwise, move the position of this object to the popped position listed.
 		var new_pos_info = my_death_records.pop_back()
-		position = new_pos_info["pos_on_death"]		
+		position = new_pos_info["pos_on_death"]
+		#print(new_pos_info, "box_pos_on_death")
 		
 
 	

@@ -5,10 +5,14 @@ class_name UnlockableObject
 @export var my_color: UnlockerObject.UnlockColor
 @export var delete_potential : bool = true
 
+@onready var visual_aid : VisualAid = $VisualAid
+
 const DEATH_RECORD = {"state": true}
 var my_death_records = []
 
 func _ready() -> void:
+	visual_aid.my_color = my_color
+	visual_aid.update_text()
 	pass
 	#GameStage.unlockable_things_by_color[my_color].append(self)
 	#print(GameStage.unlockable_things_by_color)

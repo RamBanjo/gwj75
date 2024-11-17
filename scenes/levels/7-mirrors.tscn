@@ -1,25 +1,23 @@
-[gd_scene load_steps=15 format=4 uid="uid://csgiklwvm468b"]
+[gd_scene load_steps=13 format=4 uid="uid://csgiklwvm468b"]
 
 [ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_mflvy"]
 [ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="2_74c5g"]
-[ext_resource type="PackedScene" uid="uid://bsodjvyu1d3db" path="res://scenes/levels/8-invisible_maze.tscn" id="2_c8itd"]
 [ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="3_wlkjx"]
 [ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="4_x22rg"]
 [ext_resource type="PackedScene" uid="uid://dkiiwqki64hny" path="res://scenes/doors/red/locked_red_door.tscn" id="6_x1ixf"]
 [ext_resource type="PackedScene" uid="uid://6pq6ce6qamxo" path="res://scenes/floor_buttons/red/red_floor_button.tscn" id="8_ln1kf"]
 [ext_resource type="PackedScene" uid="uid://m56d7cor31ag" path="res://scenes/canvases/win_screen.tscn" id="9_rkq6n"]
-[ext_resource type="PackedScene" uid="uid://12jd6q2hupeq" path="res://scenes/canvases/undo_hint.tscn" id="10_ww77c"]
-[ext_resource type="PackedScene" uid="uid://cbu5uxgq3qac5" path="res://scenes/canvases/mirror_drop_hint.tscn" id="11_y8gft"]
-[ext_resource type="PackedScene" uid="uid://jduxfwufml56" path="res://scenes/canvases/mirror_hold_hint.tscn" id="12_fmk1m"]
+[ext_resource type="PackedScene" uid="uid://bteoeg5ecdjq0" path="res://scenes/sound_player.tscn" id="11_l701l"]
+[ext_resource type="PackedScene" uid="uid://cebv1enotkqwx" path="res://scenes/canvases/level_info_canvas.tscn" id="11_njdul"]
 [ext_resource type="PackedScene" uid="uid://b6yx3h7cp7dmu" path="res://scenes/mirror/mirror.tscn" id="12_hciqw"]
-[ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="12_tw8fe"]
+[ext_resource type="PackedScene" uid="uid://bqrloww234wnq" path="res://scenes/canvases/mirror_effect.tscn" id="12_pwyyq"]
 [ext_resource type="PackedScene" uid="uid://d3q0slgc8gwnr" path="res://scenes/boxes/physics_box.tscn" id="13_jacvd"]
 
 [node name="Node2D" type="Node2D"]
 light_mask = 3
 visibility_layer = 3
 script = ExtResource("1_mflvy")
-next_stage = ExtResource("2_c8itd")
+level_index = 7
 
 [node name="ForegroundTiles" parent="." instance=ExtResource("2_74c5g")]
 tile_map_data = PackedByteArray("AAAAAAgAAQAAAAEAAAAAAAkAAQAAAAIAAAABAAkAAQABAAIAAAACAAkAAQABAAIAAAADAAkAAQABAAIAAAAEAAkAAQABAAIAAAAFAAkAAQABAAIAAAAGAAkAAQABAAIAAAAHAAkAAQABAAIAAAAIAAkAAQABAAIAAAAJAAkAAQABAAIAAAAKAAkAAQABAAIAAAAKAAgAAQAEAAIAAAAJAAgAAQAEAAIAAAAIAAgAAQAEAAIAAAAHAAgAAQAEAAIAAAAGAAgAAQAEAAIAAAAFAAgAAQAEAAIAAAAEAAgAAQAEAAIAAAADAAgAAQAEAAIAAAACAAgAAQAHAAIAAAABAAgAAQAGAAIAAAAAAAoAAQAAAAMAAAAAAAsAAQADAAQAAAABAAoAAQAEAAMAAAABAAsAAQABAAQAAAACAAoAAQAEAAMAAAACAAsAAQABAAQAAAADAAoAAQABAAMAAAADAAsAAQABAAQAAAAEAAoAAQABAAMAAAAEAAsAAQAEAAQAAAAFAAoAAQAEAAMAAAAFAAsAAQABAAQAAAAGAAoAAQAEAAMAAAAGAAsAAQAEAAQAAAAHAAoAAQAEAAMAAAAHAAsAAQAEAAQAAAALAAkAAQABAAIAAAALAAgAAQAEAAIAAAALAAsAAQABAAQAAAALAAoAAQAEAAMAAAAKAAsAAQAEAAQAAAAKAAoAAQAEAAMAAAAJAAsAAQAEAAQAAAAJAAoAAQABAAMAAAAIAAsAAQAEAAQAAAAIAAoAAQABAAMAAAAOAAgAAQAHAAIAAAANAAgAAQAHAAIAAAAMAAgAAQAEAAIAAAARAAsAAQACAAQAAAAQAAsAAQABAAQAAAAPAAsAAQABAAQAAAAOAAsAAQABAAQAAAAOAAoAAQAEAAMAAAANAAsAAQAEAAQAAAANAAoAAQAEAAMAAAAMAAsAAQABAAQAAAAMAAoAAQABAAMAAAAOAAkAAQABAAIAAAANAAkAAQABAAIAAAAMAAkAAQABAAIAAAAAAAcAAQAAAAEAAAABAAcAAQAGAAEAAAACAAcAAQAHAAEAAAADAAcAAQAHAAEAAAAEAAcAAQAHAAEAAAAFAAcAAQAEAAEAAAAGAAcAAQAHAAEAAAAHAAcAAQAHAAEAAAAIAAcAAQAEAAEAAAAJAAcAAQAEAAEAAAAKAAcAAQAHAAEAAAALAAcAAQAEAAEAAAAMAAcAAQAIAAQAAAANAAcAAQAIAAQAAAAOAAcAAQAIAAQAAAAAAAQAAQAAAAEAAAAAAAUAAQAAAAEAAAAAAAYAAQAAAAEAAAAAAAMAAQAAAAEAAAABAAQAAQAGAAAAAAABAAUAAQAGAAEAAAABAAYAAQADAAEAAAABAAMAAQADAAQAAAACAAQAAQAHAAAAAAACAAUAAQAEAAEAAAACAAYAAQAEAAEAAAACAAMAAQAEAAQAAAADAAQAAQAHAAAAAAADAAUAAQAEAAEAAAADAAYAAQAEAAEAAAADAAMAAQAEAAQAAAAEAAQAAQAEAAAAAAAEAAUAAQAEAAEAAAAEAAYAAQAHAAEAAAAEAAMAAQABAAQAAAAFAAQAAQAHAAAAAAAFAAUAAQAHAAEAAAAFAAYAAQAHAAEAAAAFAAMAAQAEAAQAAAAGAAQAAQAHAAAAAAAGAAUAAQAEAAEAAAAGAAYAAQAEAAEAAAAGAAMAAQAEAAQAAAAHAAQAAQAEAAAAAAAHAAUAAQAEAAEAAAAHAAYAAQAHAAEAAAAHAAMAAQABAAQAAAAIAAQAAQAHAAAAAAAIAAUAAQAEAAEAAAAIAAYAAQAEAAEAAAAIAAMAAQAEAAQAAAAJAAQAAQAHAAAAAAAJAAUAAQAEAAEAAAAJAAYAAQAHAAEAAAAJAAMAAQAEAAQAAAAKAAQAAQAEAAAAAAAKAAUAAQAHAAEAAAAKAAYAAQAEAAEAAAAKAAMAAQAEAAQAAAALAAQAAQAHAAAAAAALAAUAAQAHAAEAAAALAAYAAQAEAAEAAAALAAMAAQABAAQAAAAMAAQAAQAEAAAAAAAMAAUAAQAIAAQAAAAMAAYAAQAHAAEAAAAMAAMAAQABAAQAAAANAAQAAQAHAAAAAAANAAUAAQAIAAQAAAANAAYAAQAHAAEAAAANAAMAAQABAAQAAAAOAAQAAQAHAAAAAAAOAAUAAQAIAAQAAAAOAAYAAQAIAAQAAAAOAAMAAQAEAAQAAAAAAAEAAQAAAAAAAAAAAAIAAQAAAAEAAAABAAEAAQABAAAAAAABAAIAAQAAAAMAAAACAAEAAQABAAAAAAACAAIAAQABAAMAAAADAAEAAQABAAAAAAADAAIAAQABAAMAAAAEAAEAAQABAAAAAAAEAAIAAQAEAAMAAAAFAAEAAQABAAAAAAAFAAIAAQAEAAMAAAAGAAEAAQABAAAAAAAGAAIAAQABAAMAAAAHAAEAAQABAAAAAAAHAAIAAQAEAAMAAAAIAAEAAQABAAAAAAAIAAIAAQABAAMAAAAJAAEAAQABAAAAAAAJAAIAAQAEAAMAAAAKAAEAAQABAAAAAAAKAAIAAQABAAMAAAALAAEAAQABAAAAAAALAAIAAQABAAMAAAAMAAEAAQABAAAAAAAMAAIAAQAEAAMAAAANAAEAAQABAAAAAAANAAIAAQABAAMAAAAOAAEAAQABAAAAAAAOAAIAAQAEAAMAAAAPAAEAAQABAAAAAAAPAAIAAQAEAAMAAAAPAAMAAQABAAQAAAAPAAQAAQAHAAAAAAAPAAUAAQAEAAEAAAAPAAYAAQAEAAEAAAAPAAcAAQAHAAEAAAAPAAgAAQAHAAIAAAAPAAkAAQABAAIAAAAPAAoAAQAEAAMAAAAQAAEAAQABAAAAAAAQAAIAAQACAAMAAAAQAAMAAQACAAQAAAAQAAQAAQAIAAAAAAAQAAUAAQAFAAEAAAAQAAYAAQAFAAEAAAAQAAcAAQAIAAEAAAAQAAgAAQAFAAIAAAAQAAkAAQABAAIAAAAQAAoAAQAEAAMAAAARAAEAAQACAAAAAAARAAIAAQACAAEAAAARAAMAAQACAAEAAAARAAQAAQACAAEAAAARAAUAAQACAAEAAAARAAYAAQACAAEAAAARAAcAAQACAAEAAAARAAgAAQACAAEAAAARAAkAAQACAAIAAAARAAoAAQACAAMAAAA=")
@@ -43,31 +41,6 @@ position = Vector2(576, 384)
 
 [node name="WinScreen" parent="." instance=ExtResource("9_rkq6n")]
 
-[node name="UndoHint" parent="." instance=ExtResource("10_ww77c")]
-
-[node name="MirrorDropHint" parent="." instance=ExtResource("11_y8gft")]
-
-[node name="MirrorHoldHint" parent="." instance=ExtResource("12_fmk1m")]
-
-[node name="TutorialCanvas" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="TutorialCanvas"]
-light_mask = 3
-visibility_layer = 3
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -448.0
-offset_right = 448.0
-offset_bottom = 121.0
-grow_horizontal = 2
-theme = ExtResource("12_tw8fe")
-theme_override_font_sizes/font_size = 48
-text = "Things might not be what they seem...
-Use the mirror to find out!"
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="Mirror" parent="." instance=ExtResource("12_hciqw")]
 position = Vector2(192, 512)
 
@@ -75,5 +48,11 @@ position = Vector2(192, 512)
 light_mask = 2
 visibility_layer = 2
 position = Vector2(576, 384)
+
+[node name="SoundPlayer" parent="." instance=ExtResource("11_l701l")]
+
+[node name="LevelInfoCanvas" parent="." instance=ExtResource("11_njdul")]
+
+[node name="MirrorEffect" parent="." instance=ExtResource("12_pwyyq")]
 
 [connection signal="win_clicked" from="WinScreen" to="." method="_on_win_screen_win_clicked"]

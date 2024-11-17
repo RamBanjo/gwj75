@@ -7,6 +7,8 @@ class_name UnlockerObject
 @export var my_color : UnlockColor
 @export var delete_potential : bool = true
 
+@onready var visual_aid : VisualAid = $VisualAid
+
 const DEATH_RECORD = {"toggled" : false}
 var my_death_records = []
 static var toggle_count_death_records = []
@@ -20,7 +22,10 @@ enum UnlockColor{
 }
 
 const DEFAULT_TOGGLE_COUNTER : Dictionary = {
-	UnlockColor.RED : 0
+	UnlockColor.RED : 0,
+	UnlockColor.GREEN: 0,
+	UnlockColor.BLUE: 0,
+	UnlockColor.YELLOW: 0
 }
 
 static var toggle_count_by_color : Dictionary = DEFAULT_TOGGLE_COUNTER.duplicate()
@@ -67,6 +72,9 @@ func restore_latest_death_state():
 
 
 func _ready():
+	
+	visual_aid.my_color = my_color
+	visual_aid.update_text()
 	pass
 	#self.toggle_count_changed.connect(GameStage._on_unlocker_activated.bind())
 
@@ -105,6 +113,7 @@ func become_touched():
 		toggled = true
 		
 	if destroy_self_on_touch and toggled:
+		#GameStage.current_scene_instance.sound_player.play_key_sound()
 		self.hide()
 	
 func become_untouched(undestroy : bool = false):

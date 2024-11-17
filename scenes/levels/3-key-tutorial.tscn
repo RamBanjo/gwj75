@@ -1,7 +1,6 @@
-[gd_scene load_steps=14 format=4 uid="uid://dj1jt00igxnaw"]
+[gd_scene load_steps=13 format=4 uid="uid://dj1jt00igxnaw"]
 
 [ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_joyx2"]
-[ext_resource type="PackedScene" uid="uid://cx3xqirn6inya" path="res://scenes/levels/4-floor_buttons_tutorial.tscn" id="2_uwaba"]
 [ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="3_kmm4f"]
 [ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="4_y8vv2"]
 [ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="5_ox4px"]
@@ -9,23 +8,21 @@
 [ext_resource type="PackedScene" uid="uid://dkiiwqki64hny" path="res://scenes/doors/red/locked_red_door.tscn" id="7_wofpx"]
 [ext_resource type="PackedScene" uid="uid://m56d7cor31ag" path="res://scenes/canvases/win_screen.tscn" id="8_abi0q"]
 [ext_resource type="PackedScene" uid="uid://o0d2nqbm33mw" path="res://scenes/doors/red/unlocked_red_door.tscn" id="8_sl3y5"]
-[ext_resource type="PackedScene" uid="uid://12jd6q2hupeq" path="res://scenes/canvases/undo_hint.tscn" id="9_3mv5w"]
-[ext_resource type="PackedScene" uid="uid://cbu5uxgq3qac5" path="res://scenes/canvases/mirror_drop_hint.tscn" id="10_wllqh"]
+[ext_resource type="PackedScene" uid="uid://cebv1enotkqwx" path="res://scenes/canvases/level_info_canvas.tscn" id="10_bvigi"]
+[ext_resource type="PackedScene" uid="uid://bteoeg5ecdjq0" path="res://scenes/sound_player.tscn" id="10_ojre2"]
 [ext_resource type="PackedScene" uid="uid://bko46rodpekgd" path="res://scenes/keys/red/red_key.tscn" id="11_80lcl"]
-[ext_resource type="PackedScene" uid="uid://jduxfwufml56" path="res://scenes/canvases/mirror_hold_hint.tscn" id="11_iykff"]
+[ext_resource type="PackedScene" uid="uid://bqrloww234wnq" path="res://scenes/canvases/mirror_effect.tscn" id="12_xx2n2"]
 
 [node name="Node2D" type="Node2D"]
 light_mask = 3
 visibility_layer = 3
 script = ExtResource("1_joyx2")
-next_stage = ExtResource("2_uwaba")
+level_index = 2
 
 [node name="ForegroundTiles" parent="." instance=ExtResource("3_kmm4f")]
 tile_map_data = PackedByteArray("AAAQAAIAAQAFAAQAAAAQAAEAAQACAAMAAAAPAAIAAQAEAAQAAAAPAAEAAQABAAMAAAAOAAIAAQAEAAQAAAAOAAEAAQABAAMAAAANAAIAAQAEAAQAAAANAAEAAQABAAMAAAAMAAIAAQAEAAQAAAAMAAEAAQAEAAMAAAALAAIAAQADAAQAAAALAAEAAQABAAMAAAAFAAIAAQAEAAQAAAAFAAEAAQABAAMAAAAEAAIAAQAEAAQAAAAEAAEAAQABAAMAAAADAAIAAQABAAQAAAADAAEAAQABAAMAAAACAAIAAQAEAAQAAAACAAEAAQABAAMAAAABAAIAAQAAAAQAAAABAAEAAQAAAAMAAAAQAAcAAQAIAAIAAAAQAAYAAQAFAAEAAAAQAAUAAQAFAAEAAAAQAAQAAQAFAAEAAAAQAAMAAQAIAAAAAAAPAAcAAQAEAAIAAAAPAAYAAQAEAAEAAAAPAAUAAQAHAAEAAAAPAAQAAQAEAAEAAAAPAAMAAQAEAAAAAAAOAAcAAQAEAAIAAAAOAAYAAQAEAAEAAAAOAAUAAQAEAAEAAAAOAAQAAQAHAAEAAAAOAAMAAQAHAAAAAAANAAcAAQAHAAIAAAANAAYAAQAEAAEAAAANAAUAAQAEAAEAAAANAAQAAQAHAAEAAAANAAMAAQAHAAAAAAAMAAcAAQAHAAIAAAAMAAYAAQAHAAEAAAAMAAUAAQAEAAEAAAAMAAQAAQAHAAEAAAAMAAMAAQAHAAAAAAALAAcAAQAEAAIAAAALAAYAAQAKAAMAAAALAAUAAQADAAEAAAALAAQAAQADAAEAAAALAAMAAQADAAAAAAAKAAcAAQAHAAIAAAAKAAYAAQAHAAAAAAAKAAUAAQAFAAQAAAAKAAQAAQAFAAMAAAAJAAcAAQAHAAIAAAAJAAYAAQAHAAAAAAAJAAUAAQABAAQAAAAJAAQAAQABAAMAAAAIAAcAAQAHAAIAAAAIAAYAAQAHAAAAAAAIAAUAAQAEAAQAAAAIAAQAAQAEAAMAAAAHAAcAAQAHAAIAAAAHAAYAAQAEAAAAAAAHAAUAAQABAAQAAAAHAAQAAQABAAMAAAAGAAcAAQAEAAIAAAAGAAYAAQAHAAAAAAAGAAUAAQAAAAQAAAAGAAQAAQAAAAMAAAAFAAcAAQAEAAIAAAAFAAYAAQAJAAEAAAAFAAUAAQAFAAEAAAAFAAQAAQAFAAEAAAAFAAMAAQAIAAAAAAAEAAcAAQAHAAIAAAAEAAYAAQAEAAEAAAAEAAUAAQAEAAEAAAAEAAQAAQAHAAEAAAAEAAMAAQAEAAAAAAADAAcAAQAEAAIAAAADAAYAAQAEAAEAAAADAAUAAQAHAAEAAAADAAQAAQAHAAEAAAADAAMAAQAEAAAAAAACAAcAAQAHAAIAAAACAAYAAQAHAAEAAAACAAUAAQAEAAEAAAACAAQAAQAHAAEAAAACAAMAAQAHAAAAAAABAAcAAQADAAIAAAABAAYAAQAGAAEAAAABAAUAAQADAAEAAAABAAQAAQADAAEAAAABAAMAAQAGAAAAAAAAAAAAAQAAAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQABAAAAAAAEAAAAAQABAAAAAAAFAAAAAQABAAAAAAALAAAAAQABAAAAAAAMAAAAAQABAAAAAAANAAAAAQABAAAAAAAOAAAAAQABAAAAAAAPAAAAAQABAAAAAAAQAAAAAQABAAAAAAARAAAAAQACAAAAAAARAAEAAQACAAEAAAARAAIAAQACAAEAAAARAAMAAQACAAEAAAARAAQAAQACAAEAAAARAAUAAQACAAEAAAARAAYAAQACAAEAAAARAAcAAQACAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAQAAQAAAAEAAAAAAAUAAQAAAAEAAAAAAAYAAQAAAAEAAAAAAAcAAQAAAAEAAAARAAkAAQAFAAMAAAARAAgAAQACAAIAAAAQAAkAAQAEAAMAAAAQAAgAAQABAAIAAAAPAAkAAQAEAAMAAAAPAAgAAQABAAIAAAAOAAkAAQABAAMAAAAOAAgAAQABAAIAAAANAAkAAQABAAMAAAANAAgAAQABAAIAAAAMAAkAAQAEAAMAAAAMAAgAAQABAAIAAAALAAkAAQAEAAMAAAALAAgAAQABAAIAAAAKAAkAAQABAAMAAAAKAAgAAQABAAIAAAAJAAkAAQABAAMAAAAJAAgAAQABAAIAAAAIAAkAAQAEAAMAAAAIAAgAAQABAAIAAAAHAAkAAQAEAAMAAAAHAAgAAQABAAIAAAAGAAkAAQAEAAMAAAAGAAgAAQABAAIAAAAFAAkAAQAEAAMAAAAFAAgAAQABAAIAAAAEAAkAAQAEAAMAAAAEAAgAAQABAAIAAAADAAkAAQABAAMAAAADAAgAAQABAAIAAAACAAkAAQABAAMAAAACAAgAAQABAAIAAAABAAkAAQAEAAMAAAABAAgAAQABAAIAAAAAAAkAAQADAAMAAAAAAAgAAQAAAAIAAAARAAoAAQACAAQAAAAQAAoAAQABAAQAAAAPAAoAAQAEAAQAAAAOAAoAAQABAAQAAAANAAoAAQABAAQAAAAMAAoAAQAEAAQAAAALAAoAAQABAAQAAAAKAAoAAQAEAAQAAAAJAAoAAQAEAAQAAAAIAAoAAQAEAAQAAAAHAAoAAQABAAQAAAAGAAoAAQABAAQAAAAFAAoAAQABAAQAAAAEAAoAAQABAAQAAAADAAoAAQAEAAQAAAACAAoAAQAEAAQAAAABAAoAAQAEAAQAAAAAAAoAAQAAAAQAAAAGAAEAAQACAAEAAAAGAAAAAQACAAAAAAAGAAIAAQACAAEAAAAGAAMAAQAAAAIAAAAHAAMAAQABAAIAAAAIAAMAAQABAAIAAAAJAAMAAQABAAIAAAAKAAMAAQACAAIAAAAKAAIAAQACAAEAAAAKAAEAAQACAAEAAAAKAAAAAQAAAAAAAAA=")
 
 [node name="Player" parent="." instance=ExtResource("4_y8vv2")]
-light_mask = 1
-visibility_layer = 1
 position = Vector2(160, 352)
 
 [node name="GoalFloor" parent="." instance=ExtResource("5_ox4px")]
@@ -34,9 +31,25 @@ position = Vector2(992, 352)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
 
-[node name="TutorialCanvas" type="CanvasLayer" parent="."]
+[node name="WinScreen" parent="." instance=ExtResource("8_abi0q")]
 
-[node name="Label2" type="Label" parent="TutorialCanvas"]
+[node name="Key" parent="." instance=ExtResource("11_80lcl")]
+position = Vector2(160, 224)
+
+[node name="Key2" parent="." instance=ExtResource("11_80lcl")]
+position = Vector2(544, 448)
+
+[node name="Door" parent="." instance=ExtResource("7_wofpx")]
+position = Vector2(448, 448)
+
+[node name="Door2" parent="." instance=ExtResource("8_sl3y5")]
+position = Vector2(640, 448)
+
+[node name="SoundPlayer" parent="." instance=ExtResource("10_ojre2")]
+
+[node name="LevelInfoCanvas" parent="." instance=ExtResource("10_bvigi")]
+
+[node name="Label2" type="Label" parent="LevelInfoCanvas"]
 light_mask = 3
 visibility_layer = 3
 anchors_preset = 7
@@ -55,24 +68,6 @@ text = "Open and close doors with keys."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="WinScreen" parent="." instance=ExtResource("8_abi0q")]
-
-[node name="UndoHint" parent="." instance=ExtResource("9_3mv5w")]
-
-[node name="MirrorDropHint" parent="." instance=ExtResource("10_wllqh")]
-
-[node name="MirrorHoldHint" parent="." instance=ExtResource("11_iykff")]
-
-[node name="Key" parent="." instance=ExtResource("11_80lcl")]
-position = Vector2(160, 224)
-
-[node name="Key2" parent="." instance=ExtResource("11_80lcl")]
-position = Vector2(544, 448)
-
-[node name="Door" parent="." instance=ExtResource("7_wofpx")]
-position = Vector2(448, 448)
-
-[node name="Door2" parent="." instance=ExtResource("8_sl3y5")]
-position = Vector2(640, 448)
+[node name="MirrorEffect" parent="." instance=ExtResource("12_xx2n2")]
 
 [connection signal="win_clicked" from="WinScreen" to="." method="_on_win_screen_win_clicked"]

@@ -5,6 +5,7 @@ class_name FloorButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	super._ready()
 	pass # Replace with function body.
 
 
@@ -30,6 +31,10 @@ func update_sprite(untouched : bool):
 		
 func _on_body_entered(body: Node2D) -> void:
 	super._on_body_entered(body)
+	if GameStage.current_scene_instance:
+		GameStage.current_scene_instance.sound_player.play_switch_sound()
 	
 func _on_body_exited(body: Node2D) -> void:
 	super._on_body_exited(body)
+	if GameStage.current_scene_instance:
+		GameStage.current_scene_instance.sound_player.play_switch_sound()

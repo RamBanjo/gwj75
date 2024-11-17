@@ -1,20 +1,19 @@
-[gd_scene load_steps=10 format=4 uid="uid://dam5v1bwc83ki"]
+[gd_scene load_steps=9 format=4 uid="uid://dam5v1bwc83ki"]
 
 [ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_l5gs4"]
-[ext_resource type="PackedScene" uid="uid://b2ro52aob8afx" path="res://scenes/levels/5-2-reset-level.tscn" id="2_sulbw"]
 [ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="3_7gtsr"]
 [ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="4_hp5sd"]
 [ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="5_hl1bq"]
 [ext_resource type="PackedScene" uid="uid://m56d7cor31ag" path="res://scenes/canvases/win_screen.tscn" id="6_7a4pc"]
-[ext_resource type="PackedScene" uid="uid://12jd6q2hupeq" path="res://scenes/canvases/undo_hint.tscn" id="7_hhpyw"]
-[ext_resource type="PackedScene" uid="uid://cbu5uxgq3qac5" path="res://scenes/canvases/mirror_drop_hint.tscn" id="8_xgrng"]
-[ext_resource type="PackedScene" uid="uid://jduxfwufml56" path="res://scenes/canvases/mirror_hold_hint.tscn" id="9_h0res"]
+[ext_resource type="PackedScene" uid="uid://cebv1enotkqwx" path="res://scenes/canvases/level_info_canvas.tscn" id="7_nefha"]
+[ext_resource type="PackedScene" uid="uid://bteoeg5ecdjq0" path="res://scenes/sound_player.tscn" id="7_su706"]
+[ext_resource type="PackedScene" uid="uid://bqrloww234wnq" path="res://scenes/canvases/mirror_effect.tscn" id="8_5ldny"]
 
 [node name="Node2D" type="Node2D"]
 light_mask = 3
 visibility_layer = 3
 script = ExtResource("1_l5gs4")
-next_stage = ExtResource("2_sulbw")
+level_index = 4
 
 [node name="ForegroundTiles" parent="." instance=ExtResource("3_7gtsr")]
 tile_map_data = PackedByteArray("AAAQAAIAAQAFAAQAAAAQAAEAAQACAAMAAAAPAAIAAQAAAAQAAAAPAAEAAQABAAMAAAAOAAIAAQACAAEAAAAOAAEAAQACAAEAAAAEAAIAAQABAAQAAAAEAAEAAQABAAMAAAADAAIAAQABAAQAAAADAAEAAQAEAAMAAAACAAIAAQABAAQAAAACAAEAAQABAAMAAAABAAIAAQADAAQAAAABAAEAAQADAAMAAAAOAAUAAQAFAAQAAAAOAAQAAQAFAAMAAAAOAAMAAQACAAIAAAAJAAcAAgAAAAAAAwADAAcAAgAAAAAAAwADAAYAAgAAAAAAAwADAAUAAgAAAAAAAwAAAAAAAQAAAAAAAAABAAAAAQABAAAAAAACAAAAAQABAAAAAAADAAAAAQABAAAAAAAEAAAAAQABAAAAAAAOAAAAAQAAAAAAAAAPAAAAAQABAAAAAAAQAAAAAQABAAAAAAARAAAAAQACAAAAAAARAAEAAQACAAEAAAARAAIAAQACAAEAAAARAAMAAQACAAEAAAARAAQAAQACAAEAAAARAAUAAQACAAEAAAARAAYAAQACAAEAAAARAAcAAQACAAEAAAAAAAEAAQAAAAEAAAAAAAIAAQAAAAEAAAAAAAMAAQAAAAEAAAAAAAQAAQAAAAEAAAAAAAUAAQAAAAEAAAAAAAYAAQAAAAEAAAAAAAcAAQAAAAEAAAARAAkAAQAFAAMAAAARAAgAAQACAAIAAAAQAAkAAQABAAMAAAAQAAgAAQABAAIAAAAPAAkAAQAEAAMAAAAPAAgAAQABAAIAAAAOAAkAAQAEAAMAAAAOAAgAAQABAAIAAAANAAkAAQABAAMAAAANAAgAAQABAAIAAAAMAAkAAQABAAMAAAAMAAgAAQABAAIAAAALAAkAAQAEAAMAAAALAAgAAQABAAIAAAAKAAkAAQAEAAMAAAAKAAgAAQABAAIAAAAJAAkAAQABAAMAAAAJAAgAAQABAAIAAAAIAAkAAQAEAAMAAAAIAAgAAQABAAIAAAAHAAkAAQABAAMAAAAHAAgAAQABAAIAAAAGAAkAAQABAAMAAAAGAAgAAQABAAIAAAAFAAkAAQAEAAMAAAAFAAgAAQABAAIAAAAEAAkAAQABAAMAAAAEAAgAAQABAAIAAAADAAkAAQABAAMAAAADAAgAAQABAAIAAAACAAkAAQAEAAMAAAACAAgAAQABAAIAAAABAAkAAQAEAAMAAAABAAgAAQABAAIAAAAAAAkAAQADAAMAAAAAAAgAAQAAAAIAAAARAAoAAQAFAAQAAAAQAAoAAQABAAQAAAAPAAoAAQABAAQAAAAOAAoAAQABAAQAAAANAAoAAQAEAAQAAAAMAAoAAQAEAAQAAAALAAoAAQABAAQAAAAKAAoAAQABAAQAAAAJAAoAAQABAAQAAAAIAAoAAQABAAQAAAAHAAoAAQABAAQAAAAGAAoAAQABAAQAAAAFAAoAAQABAAQAAAAEAAoAAQAEAAQAAAADAAoAAQABAAQAAAACAAoAAQAEAAQAAAABAAoAAQAEAAQAAAAAAAoAAQAAAAQAAAAKAAEAAQABAAMAAAAKAAIAAQAEAAQAAAAKAAAAAQABAAAAAAAIAAAAAQABAAAAAAAIAAEAAQAEAAMAAAAIAAIAAQABAAQAAAAJAAAAAQABAAAAAAAJAAEAAQABAAMAAAAJAAIAAQAEAAQAAAAFAAAAAQABAAAAAAAGAAAAAQABAAAAAAAHAAAAAQABAAAAAAAHAAIAAQAEAAQAAAAHAAEAAQABAAMAAAAGAAIAAQABAAQAAAAGAAEAAQABAAMAAAAFAAIAAQAEAAQAAAAFAAEAAQAEAAMAAAAJAAYAAgAAAAAAAwAJAAUAAgAAAAAAAwAMAAMAAQAAAAIAAAAMAAQAAQAAAAMAAAAMAAUAAQAAAAQAAAANAAMAAQABAAIAAAANAAQAAQABAAMAAAANAAUAAQABAAQAAAAMAAAAAQACAAAAAAAMAAEAAQACAAEAAAAMAAIAAQACAAEAAAALAAAAAQABAAAAAAALAAIAAQACAAQAAAALAAEAAQAFAAMAAAAGAAMAAgAAAAAAAwAGAAQAAgAAAAAAAwAGAAUAAgAAAAAAAwACAAcAAQAIAAIAAAACAAYAAQAIAAEAAAACAAUAAQAIAAEAAAACAAQAAQAJAAAAAAACAAMAAQAEAAAAAAABAAcAAQADAAIAAAABAAYAAQADAAEAAAABAAUAAQAGAAEAAAABAAQAAQAGAAEAAAABAAMAAQAGAAAAAAAFAAQAAQAFAAEAAAAFAAMAAQAIAAAAAAAEAAQAAQAKAAIAAAAEAAMAAQAHAAAAAAADAAQAAQAEAAIAAAADAAMAAQAHAAAAAAAFAAcAAQAEAAIAAAAFAAYAAQAJAAMAAAAFAAUAAQAIAAEAAAAEAAcAAQADAAIAAAAEAAYAAQAGAAEAAAAEAAUAAQAGAAEAAAAIAAcAAQAIAAIAAAAIAAYAAQAFAAEAAAAHAAcAAQAHAAIAAAAHAAYAAQAKAAMAAAAGAAcAAQAEAAIAAAAGAAYAAQAHAAAAAAAIAAUAAQAFAAEAAAAIAAQAAQAJAAIAAAAIAAMAAQAHAAAAAAAHAAUAAQADAAEAAAAHAAQAAQAGAAEAAAAHAAMAAQADAAAAAAALAAQAAQAIAAEAAAALAAMAAQAIAAAAAAAKAAQAAQAKAAAAAAAKAAMAAQAHAAAAAAAJAAQAAQAEAAIAAAAJAAMAAQAHAAAAAAALAAcAAQAEAAIAAAALAAYAAQAJAAMAAAALAAUAAQAFAAEAAAAKAAcAAQADAAIAAAAKAAYAAQAGAAEAAAAKAAUAAQAGAAEAAAAQAAcAAQAFAAIAAAAQAAYAAQAFAAEAAAAPAAcAAQAEAAIAAAAPAAYAAQAKAAMAAAAOAAcAAQAEAAIAAAAOAAYAAQAEAAAAAAANAAcAAQAHAAIAAAANAAYAAQAEAAAAAAAMAAcAAQAHAAIAAAAMAAYAAQAHAAAAAAAQAAUAAQAFAAEAAAAQAAQAAQAFAAEAAAAQAAMAAQAIAAAAAAAPAAUAAQAGAAEAAAAPAAQAAQADAAEAAAAPAAMAAQAGAAAAAAA=")
@@ -28,23 +27,12 @@ position = Vector2(1024, 224)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
 
-[node name="TutorialCanvas" type="CanvasLayer" parent="."]
-
 [node name="WinScreen" parent="." instance=ExtResource("6_7a4pc")]
 
-[node name="UndoHint" parent="." instance=ExtResource("7_hhpyw")]
+[node name="SoundPlayer" parent="." instance=ExtResource("7_su706")]
 
-[node name="MirrorDropHint" parent="." instance=ExtResource("8_xgrng")]
+[node name="LevelInfoCanvas" parent="." instance=ExtResource("7_nefha")]
 
-[node name="MirrorHoldHint" parent="." instance=ExtResource("9_h0res")]
+[node name="MirrorEffect" parent="." instance=ExtResource("8_5ldny")]
 
-[connection signal="body_entered" from="ForegroundTiles/SpikeFloor" to="ForegroundTiles/SpikeFloor" method="_on_body_entered"]
-[connection signal="body_entered" from="ForegroundTiles/@Area2D@201265" to="ForegroundTiles/@Area2D@201265" method="_on_body_entered"]
-[connection signal="body_entered" from="ForegroundTiles/@Area2D@201266" to="ForegroundTiles/@Area2D@201266" method="_on_body_entered"]
-[connection signal="body_entered" from="ForegroundTiles/@Area2D@201267" to="ForegroundTiles/@Area2D@201267" method="_on_body_entered"]
-[connection signal="body_entered" from="ForegroundTiles/@Area2D@201268" to="ForegroundTiles/@Area2D@201268" method="_on_body_entered"]
-[connection signal="body_entered" from="ForegroundTiles/@Area2D@201269" to="ForegroundTiles/@Area2D@201269" method="_on_body_entered"]
-[connection signal="body_entered" from="ForegroundTiles/@Area2D@201270" to="ForegroundTiles/@Area2D@201270" method="_on_body_entered"]
-[connection signal="body_entered" from="ForegroundTiles/@Area2D@201271" to="ForegroundTiles/@Area2D@201271" method="_on_body_entered"]
-[connection signal="body_entered" from="ForegroundTiles/@Area2D@201272" to="ForegroundTiles/@Area2D@201272" method="_on_body_entered"]
 [connection signal="win_clicked" from="WinScreen" to="." method="_on_win_screen_win_clicked"]

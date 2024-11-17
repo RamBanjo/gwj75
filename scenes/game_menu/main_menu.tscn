@@ -1,0 +1,531 @@
+[gd_scene load_steps=8 format=3 uid="uid://bc62eybynn5wl"]
+
+[ext_resource type="Script" path="res://scenes/game_menu/main_menu.gd" id="1_1gykj"]
+[ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="1_3u42a"]
+[ext_resource type="Texture2D" uid="uid://cxbcod8k0a35q" path="res://sprites/GWJ-Full-Logo-noBG-4k.png" id="3_hu3xb"]
+[ext_resource type="PackedScene" uid="uid://bteoeg5ecdjq0" path="res://scenes/sound_player.tscn" id="3_oowl5"]
+[ext_resource type="PackedScene" uid="uid://ds3nwy4kc77xe" path="res://scenes/main_menu_player.tscn" id="4_1xfhy"]
+[ext_resource type="Texture2D" uid="uid://bixxww2omigad" path="res://sprites/75-Reflections.png" id="4_ly30q"]
+[ext_resource type="Texture2D" uid="uid://b660hrxxnhmw7" path="res://sprites/75-All-Cards.png" id="5_hyygc"]
+
+[node name="MainMenu" type="Node2D"]
+script = ExtResource("1_1gykj")
+
+[node name="GameTitleCanvas" type="CanvasLayer" parent="."]
+
+[node name="GameTitle" type="Label" parent="GameTitleCanvas"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -320.0
+offset_top = 16.0
+offset_right = 320.0
+offset_bottom = 240.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_type_variation = &"TitleLabel"
+theme_override_font_sizes/font_size = 96
+text = "Soulkobound"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameSubtitle" type="Label" parent="GameTitleCanvas/GameTitle"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -192.0
+offset_top = 160.0
+offset_right = 192.0
+offset_bottom = 206.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 24
+text = "Un-Dead, Un-Reflected, Un-Puzzled!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameSubtitle2" type="Label" parent="GameTitleCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -192.0
+offset_top = -48.0
+offset_right = 192.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 24
+text = "Godot Wild Jam 75 - Reflection"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MainMenuPlayer" parent="GameTitleCanvas" instance=ExtResource("4_1xfhy")]
+position = Vector2(160, 136)
+
+[node name="MainMenuPlayer2" parent="GameTitleCanvas" instance=ExtResource("4_1xfhy")]
+position = Vector2(992, 136)
+rotation = 0.436332
+
+[node name="MainMenuCanvas" type="CanvasLayer" parent="."]
+
+[node name="PlayButton" type="Button" parent="MainMenuCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -392.0
+offset_right = -64.0
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+
+[node name="Options" type="Button" parent="MainMenuCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -392.0
+offset_right = 512.0
+offset_bottom = -328.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "Options"
+
+[node name="Credits" type="Button" parent="MainMenuCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -264.0
+offset_right = 512.0
+offset_bottom = -200.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "Credits"
+
+[node name="AboutJam" type="Button" parent="MainMenuCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -136.0
+offset_right = -64.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "About Jam"
+
+[node name="Exit" type="Button" parent="MainMenuCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = -136.0
+offset_right = 512.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "Exit"
+
+[node name="LevelSelector" type="OptionButton" parent="MainMenuCanvas"]
+offset_left = 64.0
+offset_top = 384.0
+offset_right = 512.0
+offset_bottom = 448.0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+autowrap_mode = 3
+
+[node name="GameSubtitle2" type="Label" parent="MainMenuCanvas"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -448.0
+offset_top = 328.0
+offset_right = -128.0
+offset_bottom = 376.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 24
+text = "Choose Level:"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OptionsCanvas" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="OptionsCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -392.0
+offset_right = 512.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+
+[node name="BGMLabel" type="Label" parent="OptionsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -448.0
+offset_top = 64.0
+offset_right = -128.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 24
+text = "BGM"
+vertical_alignment = 1
+
+[node name="SFXLabel" type="Label" parent="OptionsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -448.0
+offset_top = 192.0
+offset_right = -128.0
+offset_bottom = 256.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 24
+text = "SFX"
+vertical_alignment = 1
+
+[node name="BGMSlider" type="HSlider" parent="OptionsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -232.0
+offset_bottom = -216.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+step = 0.01
+
+[node name="SFXSlider" type="HSlider" parent="OptionsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -328.0
+offset_top = -104.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+step = 0.01
+
+[node name="ExitOptions" type="Button" parent="OptionsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = -80.0
+offset_right = 496.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "Close Options"
+
+[node name="CreditsCanvas" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="CreditsCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -392.0
+offset_right = 512.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+
+[node name="ExitOptions" type="Button" parent="CreditsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 336.0
+offset_top = -80.0
+offset_right = 496.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "Close"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CreditsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -488.0
+offset_top = 24.0
+offset_right = -296.0
+offset_bottom = 296.0
+grow_horizontal = 2
+theme_type_variation = &"InformativeRichLabel"
+theme_override_font_sizes/normal_font_size = 24
+bbcode_enabled = true
+text = "[center]
+RamChops Games
+
+[img=150]res://sprites/ramchops_transparent.png[/img]
+"
+
+[node name="GameSubtitle2" type="Label" parent="CreditsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -288.0
+offset_top = 24.0
+offset_right = -128.0
+offset_bottom = 296.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 18
+text = "Coding
+RamChops Games
+
+Level Design
+RamChops Games
+
+Graphics
+Kirbio"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameSubtitle3" type="Label" parent="CreditsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -80.0
+offset_top = 24.0
+offset_right = 80.0
+offset_bottom = 296.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 18
+text = "Music
+イビツ - shimtone
+DOVA-SYNDROME
+
+Death Sound
+RamChops Games
+
+Other SFX
+Kenney"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="CreditsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 336.0
+offset_top = 16.0
+offset_right = 496.0
+offset_bottom = 264.0
+grow_horizontal = 2
+theme_type_variation = &"InformativeRichLabel"
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]
+Come visit us!
+
+[url=https://ramchops.itch.io/]My itch.io[/url]
+[url=https://bsky.app/profile/ramchops.bsky.social]My BSky[/url]
+[url=https://bsky.app/profile/kirbio123.bsky.social]Kirbio's BSky[/url]"
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="CreditsCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 128.0
+offset_top = 24.0
+offset_right = 320.0
+offset_bottom = 296.0
+grow_horizontal = 2
+theme_type_variation = &"InformativeRichLabel"
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]
+Fonts
+
+[font=res://fonts/Patua_One/PatuaOne-Regular.ttf]Patua One
+LatinoType Limitada[/font]
+
+[font=res://fonts/Gentium_Plus/GentiumPlus-Bold.ttf]Gentium Plus
+SIL International[/font]
+
+[font=res://fonts/Aldrich/Aldrich-Regular.ttf]Aldritch
+Matthew Desmond[/font]"
+
+[node name="AboutJamCanvas" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Panel" type="Panel" parent="AboutJamCanvas"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -512.0
+offset_top = -392.0
+offset_right = 512.0
+offset_bottom = -72.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+
+[node name="ExitOptions" type="Button" parent="AboutJamCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = -80.0
+offset_right = 496.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "Close"
+
+[node name="ExitOptions2" type="Button" parent="AboutJamCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = 240.0
+offset_top = -80.0
+offset_right = 496.0
+offset_bottom = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 32
+text = "Close"
+
+[node name="Gwj-full-logo-noBg-4k" type="Sprite2D" parent="AboutJamCanvas/Panel"]
+position = Vector2(160, 220)
+scale = Vector2(0.072, 0.0746667)
+texture = ExtResource("3_hu3xb")
+
+[node name="75-reflections" type="Sprite2D" parent="AboutJamCanvas/Panel"]
+position = Vector2(512, 64)
+scale = Vector2(0.0948148, 0.0935065)
+texture = ExtResource("4_ly30q")
+
+[node name="75-all-cards" type="Sprite2D" parent="AboutJamCanvas/Panel"]
+position = Vector2(512, 207.406)
+scale = Vector2(0.142222, 0.158482)
+texture = ExtResource("5_hyygc")
+
+[node name="JamDesc" type="Label" parent="AboutJamCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -496.0
+offset_top = 16.0
+offset_right = -208.0
+offset_bottom = 160.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 24
+text = "This game was made for the 75th Godot Wild Jam with the theme Reflections!"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="JamDesc2" type="Label" parent="AboutJamCanvas/Panel"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 208.0
+offset_top = 16.0
+offset_right = 496.0
+offset_bottom = 160.0
+grow_horizontal = 2
+theme = ExtResource("1_3u42a")
+theme_override_font_sizes/font_size = 24
+text = "All wild cards were used, though not all of them may appear in a given level at once."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="SoundPlayer" parent="." instance=ExtResource("3_oowl5")]
+
+[connection signal="pressed" from="MainMenuCanvas/PlayButton" to="." method="_on_play_button_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/Options" to="." method="_on_options_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/Credits" to="." method="_on_credits_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/AboutJam" to="." method="_on_about_jam_pressed"]
+[connection signal="pressed" from="MainMenuCanvas/Exit" to="." method="_on_exit_pressed"]
+[connection signal="drag_ended" from="OptionsCanvas/Panel/BGMSlider" to="." method="_on_bgm_slider_drag_ended"]
+[connection signal="drag_ended" from="OptionsCanvas/Panel/SFXSlider" to="." method="_on_sfx_slider_drag_ended"]
+[connection signal="pressed" from="OptionsCanvas/Panel/ExitOptions" to="." method="_on_exit_options_pressed"]
+[connection signal="pressed" from="CreditsCanvas/Panel/ExitOptions" to="." method="_on_exit_options_pressed"]
+[connection signal="meta_clicked" from="CreditsCanvas/Panel/RichTextLabel2" to="." method="_on_rich_text_label_2_meta_clicked"]
+[connection signal="pressed" from="AboutJamCanvas/Panel/ExitOptions" to="." method="_on_exit_options_pressed"]
+[connection signal="pressed" from="AboutJamCanvas/Panel/ExitOptions2" to="." method="_on_exit_options_pressed"]

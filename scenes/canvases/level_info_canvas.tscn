@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://cebv1enotkqwx"]
+
+[ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="1_8qhom"]
+[ext_resource type="Script" path="res://scenes/level_info_canvas.gd" id="1_enujl"]
+
+[sub_resource type="InputEventKey" id="InputEventKey_eyr83"]
+device = -1
+keycode = 4194305
+
+[sub_resource type="Shortcut" id="Shortcut_ne5kl"]
+events = [SubResource("InputEventKey_eyr83")]
+
+[node name="LevelInfoCanvas" type="CanvasLayer"]
+layer = 2
+script = ExtResource("1_enujl")
+
+[node name="LevelName" type="Label" parent="."]
+light_mask = 3
+visibility_layer = 3
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -504.0
+offset_top = 8.0
+offset_right = 504.0
+offset_bottom = 128.0
+grow_horizontal = 2
+theme = ExtResource("1_8qhom")
+theme_type_variation = &"TitleLabel"
+text = "10. Graveyard"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="LevelName"]
+layout_mode = 0
+offset_left = 872.0
+offset_top = 16.0
+offset_right = 992.0
+offset_bottom = 104.0
+shortcut = SubResource("Shortcut_ne5kl")
+text = "(ESC) Main"
+
+[connection signal="pressed" from="LevelName/Button" to="." method="_on_button_pressed"]

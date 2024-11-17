@@ -24,8 +24,12 @@ func restore_latest_death_state():
 func set_door_lock_state():
 	#print(lock_state, name)
 	if lock_state:
+		#collision_layer = 0
+		#collision_mask = 0
 		collider.set_deferred("disabled", false)
 		door_sprite.modulate.a = 1
 	else:
+		#collision_layer = 1
+		#collision_mask = 1
 		collider.set_deferred("disabled", true)
 		door_sprite.modulate.a = 0.25

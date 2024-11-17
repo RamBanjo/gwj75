@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://cb74i4uxxg4ee"]
+
+[ext_resource type="Script" path="res://scenes/doors/door.gd" id="1_hbis2"]
+[ext_resource type="Texture2D" uid="uid://dcgw1ldxnjqjj" path="res://sprites/door_y.png" id="2_nwtyd"]
+[ext_resource type="PackedScene" uid="uid://ifqydqg78xig" path="res://scenes/visual_aid.tscn" id="3_jq02f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8b4wy"]
+size = Vector2(64, 64)
+
+[node name="Door" type="StaticBody2D" groups=["undoable", "unlockable"]]
+light_mask = 3
+visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("1_hbis2")
+lock_state = false
+my_color = 3
+delete_potential = false
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.25098)
+light_mask = 3
+visibility_layer = 3
+texture = ExtResource("2_nwtyd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8b4wy")
+disabled = true
+
+[node name="VisualAid" parent="." instance=ExtResource("3_jq02f")]

@@ -1,0 +1,30 @@
+[gd_resource type="SpriteFrames" load_steps=4 format=3 uid="uid://m42kr12a3ft2"]
+
+[ext_resource type="Texture2D" uid="uid://dim7ip14r60ef" path="res://sprites/switch_assemble_b.png" id="1_6jm4d"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6yfxa"]
+atlas = ExtResource("1_6jm4d")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s6qqa"]
+atlas = ExtResource("1_6jm4d")
+region = Rect2(0, 0, 64, 64)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6yfxa")
+}],
+"loop": true,
+"name": &"pressed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s6qqa")
+}],
+"loop": true,
+"name": &"unpressed",
+"speed": 5.0
+}]

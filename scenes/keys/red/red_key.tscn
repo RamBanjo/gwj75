@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bko46rodpekgd"]
+[gd_scene load_steps=5 format=3 uid="uid://bko46rodpekgd"]
 
 [ext_resource type="Script" path="res://scenes/keys/key.gd" id="1_y4p05"]
 [ext_resource type="SpriteFrames" uid="uid://d0j6rdvbi7q01" path="res://sprites/red_key_animated.tres" id="2_qfbnj"]
+[ext_resource type="PackedScene" uid="uid://ifqydqg78xig" path="res://scenes/visual_aid.tscn" id="3_r21oa"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_eud3h"]
 radius = 32.0
@@ -21,8 +22,10 @@ shape = SubResource("CircleShape2D_eud3h")
 light_mask = 3
 visibility_layer = 3
 sprite_frames = ExtResource("2_qfbnj")
+animation = &"red"
 autoplay = "default"
-frame_progress = 0.579056
+
+[node name="VisualAid" parent="." instance=ExtResource("3_r21oa")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

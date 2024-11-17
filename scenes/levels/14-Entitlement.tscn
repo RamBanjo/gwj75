@@ -1,0 +1,132 @@
+[gd_scene load_steps=11 format=4 uid="uid://bm67mqin6ymg2"]
+
+[ext_resource type="Script" path="res://scenes/game_scene.gd" id="1_fqbnd"]
+[ext_resource type="PackedScene" uid="uid://g6pjxukajeng" path="res://scenes/tilesets/foreground_objects.tscn" id="2_521te"]
+[ext_resource type="PackedScene" uid="uid://crgam25ce6rku" path="res://scenes/player.tscn" id="3_byh3s"]
+[ext_resource type="PackedScene" uid="uid://cujo26ds7com5" path="res://scenes/goal/goal_floor.tscn" id="4_dvjjq"]
+[ext_resource type="PackedScene" uid="uid://m56d7cor31ag" path="res://scenes/canvases/win_screen.tscn" id="5_por8t"]
+[ext_resource type="PackedScene" uid="uid://cebv1enotkqwx" path="res://scenes/canvases/level_info_canvas.tscn" id="6_77ljo"]
+[ext_resource type="PackedScene" uid="uid://bteoeg5ecdjq0" path="res://scenes/sound_player.tscn" id="7_v62sl"]
+[ext_resource type="PackedScene" uid="uid://bqrloww234wnq" path="res://scenes/canvases/mirror_effect.tscn" id="8_jewh7"]
+[ext_resource type="PackedScene" uid="uid://3nys48i57qjr" path="res://scenes/doors/red/counting_locked_red_door.tscn" id="9_5cmyd"]
+[ext_resource type="PackedScene" uid="uid://bko46rodpekgd" path="res://scenes/keys/red/red_key.tscn" id="10_mc580"]
+
+[node name="Node2D" type="Node2D"]
+light_mask = 3
+visibility_layer = 3
+script = ExtResource("1_fqbnd")
+level_index = 14
+
+[node name="ForegroundTiles" parent="." instance=ExtResource("2_521te")]
+tile_map_data = PackedByteArray("AAAAAAAAAQAIAAQAAAAAAAEAAQAIAAQAAAAAAAIAAQAIAAQAAAAAAAMAAQAIAAQAAAAAAAQAAQAIAAQAAAAAAAUAAQAIAAQAAAAAAAYAAQAIAAQAAAAAAAcAAQAIAAQAAAAAAAgAAQAIAAQAAAABAAAAAQAIAAQAAAABAAEAAQAHAAEAAAABAAIAAQAEAAEAAAABAAMAAQAEAAEAAAABAAQAAQAEAAEAAAABAAUAAQAEAAEAAAABAAYAAQAEAAEAAAABAAcAAQAEAAEAAAABAAgAAQAEAAEAAAACAAAAAQAIAAQAAAACAAEAAQAHAAEAAAACAAIAAQAHAAEAAAACAAMAAQAEAAEAAAACAAQAAQAEAAEAAAACAAUAAQAEAAEAAAACAAYAAQAEAAEAAAACAAcAAQAEAAEAAAACAAgAAQAHAAEAAAADAAAAAQAIAAQAAAADAAEAAQAEAAEAAAADAAIAAQAEAAEAAAADAAMAAQAEAAEAAAADAAQAAQAEAAEAAAADAAUAAQAHAAEAAAADAAYAAQAEAAEAAAADAAcAAQAEAAEAAAADAAgAAQAEAAEAAAAEAAAAAQAIAAQAAAAEAAEAAQAEAAEAAAAEAAIAAQAEAAEAAAAEAAMAAQAHAAEAAAAEAAQAAQAEAAEAAAAEAAUAAQAEAAEAAAAEAAYAAQAEAAEAAAAEAAcAAQAHAAEAAAAEAAgAAQAEAAEAAAAFAAAAAQAIAAQAAAAFAAEAAQAHAAEAAAAFAAIAAQAEAAEAAAAFAAMAAQAEAAEAAAAFAAQAAQAEAAEAAAAFAAUAAQAHAAEAAAAFAAYAAQAHAAEAAAAFAAcAAQAEAAEAAAAFAAgAAQAEAAEAAAAGAAAAAQAIAAQAAAAGAAEAAQAEAAEAAAAGAAIAAQAHAAEAAAAGAAMAAQAHAAEAAAAGAAQAAQAHAAEAAAAGAAUAAQAHAAEAAAAGAAYAAQAEAAEAAAAGAAcAAQAEAAEAAAAGAAgAAQAHAAEAAAAHAAAAAQAIAAQAAAAHAAEAAQAHAAEAAAAHAAIAAQAEAAEAAAAHAAMAAQAEAAEAAAAHAAQAAQAHAAEAAAAHAAUAAQAEAAEAAAAHAAYAAQAHAAEAAAAHAAcAAQAEAAEAAAAHAAgAAQAHAAEAAAAIAAAAAQAIAAQAAAAIAAEAAQAHAAEAAAAIAAIAAQAEAAEAAAAIAAMAAQAEAAEAAAAIAAQAAQAEAAEAAAAIAAUAAQAEAAEAAAAIAAYAAQAEAAEAAAAIAAcAAQAHAAEAAAAIAAgAAQAHAAEAAAAJAAAAAQAIAAQAAAAJAAEAAQAHAAEAAAAJAAIAAQAEAAEAAAAJAAMAAQAEAAEAAAAJAAQAAQAEAAEAAAAJAAUAAQAEAAEAAAAJAAYAAQAHAAEAAAAJAAcAAQAHAAEAAAAJAAgAAQAEAAEAAAAKAAAAAQAIAAQAAAAKAAEAAQAHAAEAAAAKAAIAAQAEAAEAAAAKAAMAAQAEAAEAAAAKAAQAAQAEAAEAAAAKAAUAAQAHAAEAAAAKAAYAAQAEAAEAAAAKAAcAAQAEAAEAAAAKAAgAAQAHAAEAAAALAAAAAQAIAAQAAAALAAEAAQAHAAEAAAALAAIAAQAHAAEAAAALAAMAAQAEAAEAAAALAAQAAQAEAAEAAAALAAUAAQAHAAEAAAALAAYAAQAHAAEAAAALAAcAAQAHAAEAAAALAAgAAQAHAAEAAAAMAAAAAQAIAAQAAAAMAAEAAQAHAAEAAAAMAAIAAQAEAAEAAAAMAAMAAQAHAAEAAAAMAAQAAQAHAAEAAAAMAAUAAQAHAAEAAAAMAAYAAQAHAAEAAAAMAAcAAQAEAAEAAAAMAAgAAQAHAAEAAAANAAAAAQAIAAQAAAANAAEAAQAHAAEAAAANAAIAAQAHAAEAAAANAAMAAQAHAAEAAAANAAQAAQAHAAEAAAANAAUAAQAEAAEAAAANAAYAAQAIAAQAAAANAAcAAQAIAAQAAAANAAgAAQAIAAQAAAAOAAAAAQAIAAQAAAAOAAEAAQAEAAEAAAAOAAIAAQAEAAEAAAAOAAMAAQAHAAEAAAAOAAQAAQAEAAEAAAAOAAUAAQAEAAEAAAAOAAYAAQAEAAEAAAAOAAcAAQAEAAEAAAAOAAgAAQAEAAEAAAAPAAAAAQAIAAQAAAAPAAEAAQAEAAEAAAAPAAIAAQAHAAEAAAAPAAMAAQAEAAEAAAAPAAQAAQAEAAEAAAAPAAUAAQAHAAEAAAAPAAYAAQAEAAEAAAAPAAcAAQAEAAEAAAAPAAgAAQAEAAEAAAAQAAAAAQAIAAQAAAAQAAEAAQAEAAEAAAAQAAIAAQAEAAEAAAAQAAMAAQAHAAEAAAAQAAQAAQAHAAEAAAAQAAUAAQAHAAEAAAAQAAYAAQAEAAEAAAAQAAcAAQAEAAEAAAAQAAgAAQAEAAEAAAAAAAkAAQAIAAQAAAABAAkAAQAIAAQAAAACAAkAAQAIAAQAAAADAAkAAQAIAAQAAAAEAAkAAQAIAAQAAAAFAAkAAQAIAAQAAAAGAAkAAQAIAAQAAAAHAAkAAQAIAAQAAAAIAAkAAQAIAAQAAAAJAAkAAQAIAAQAAAAKAAkAAQAIAAQAAAALAAkAAQAIAAQAAAAMAAkAAQAIAAQAAAANAAkAAQAIAAQAAAAOAAkAAQAIAAQAAAAPAAkAAQAIAAQAAAAQAAkAAQAIAAQAAAARAAAAAQAIAAQAAAARAAEAAQAIAAQAAAARAAIAAQAIAAQAAAARAAMAAQAIAAQAAAARAAQAAQAIAAQAAAARAAUAAQAIAAQAAAARAAYAAQAIAAQAAAARAAcAAQAIAAQAAAARAAgAAQAIAAQAAAARAAkAAQAIAAQAAAASAAoAAQAFAAIAAAASAAkAAQAFAAEAAAASAAgAAQAFAAEAAAASAAcAAQAIAAEAAAASAAYAAQAFAAEAAAASAAUAAQAIAAEAAAASAAQAAQAIAAEAAAASAAMAAQAFAAEAAAASAAIAAQAFAAEAAAASAAEAAQAIAAEAAAASAAAAAQAIAAEAAAASAP//AQAFAAAAAAARAAoAAQAEAAIAAAARAP//AQAHAAAAAAAQAAoAAQAHAAIAAAAQAP//AQAEAAAAAAAPAAoAAQAHAAIAAAAPAP//AQAHAAAAAAAOAAoAAQAHAAIAAAAOAP//AQAHAAAAAAANAAoAAQAEAAIAAAANAP//AQAEAAAAAAAMAAoAAQAEAAIAAAAMAP//AQAEAAAAAAALAAoAAQAEAAIAAAALAP//AQAHAAAAAAAKAAoAAQAEAAIAAAAKAP//AQAHAAAAAAAJAAoAAQAEAAIAAAAJAP//AQAEAAAAAAAIAAoAAQAEAAIAAAAIAP//AQAEAAAAAAAHAAoAAQAHAAIAAAAHAP//AQAHAAAAAAAGAAoAAQAHAAIAAAAGAP//AQAEAAAAAAAFAAoAAQAHAAIAAAAFAP//AQAHAAAAAAAEAAoAAQAHAAIAAAAEAP//AQAEAAAAAAADAAoAAQAHAAIAAAADAP//AQAEAAAAAAACAAoAAQAEAAIAAAACAP//AQAHAAAAAAABAAoAAQAEAAIAAAABAP//AQAHAAAAAAAAAAoAAQAHAAIAAAAAAP//AQAHAAAAAAD//woAAQAGAAIAAAD//wkAAQADAAEAAAD//wgAAQADAAEAAAD//wcAAQADAAEAAAD//wYAAQADAAEAAAD//wUAAQAGAAEAAAD//wQAAQADAAEAAAD//wMAAQAGAAEAAAD//wIAAQADAAEAAAD//wEAAQADAAEAAAD//wAAAQAGAAEAAAD/////AQADAAAAAAA=")
+
+[node name="Player" parent="." instance=ExtResource("3_byh3s")]
+position = Vector2(160, 480)
+
+[node name="GoalFloor" parent="." instance=ExtResource("4_dvjjq")]
+position = Vector2(992, 544)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 324)
+
+[node name="WinScreen" parent="." instance=ExtResource("5_por8t")]
+
+[node name="LevelInfoCanvas" parent="." instance=ExtResource("6_77ljo")]
+
+[node name="SoundPlayer" parent="." instance=ExtResource("7_v62sl")]
+
+[node name="MirrorEffect" parent="." instance=ExtResource("8_jewh7")]
+
+[node name="CountingDoor" parent="." instance=ExtResource("9_5cmyd")]
+position = Vector2(928, 416)
+unlock_number = 16
+
+[node name="CountingDoor2" parent="." instance=ExtResource("9_5cmyd")]
+position = Vector2(992, 416)
+unlock_number = 16
+
+[node name="CountingDoor3" parent="." instance=ExtResource("9_5cmyd")]
+position = Vector2(1056, 416)
+unlock_number = 16
+
+[node name="Key" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(160, 88)
+
+[node name="Key16" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(96, 88)
+
+[node name="Key2" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(224, 88)
+
+[node name="Key3" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(288, 88)
+
+[node name="Key4" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(352, 88)
+
+[node name="Key5" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(416, 88)
+
+[node name="Key6" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(480, 88)
+
+[node name="Key7" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(544, 88)
+
+[node name="Key8" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(608, 88)
+
+[node name="Key9" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(672, 88)
+
+[node name="Key10" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(736, 88)
+
+[node name="Key11" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(800, 88)
+
+[node name="Key12" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(864, 88)
+
+[node name="Key13" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(928, 88)
+
+[node name="Key14" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(992, 88)
+
+[node name="Key15" parent="." instance=ExtResource("10_mc580")]
+light_mask = 2
+visibility_layer = 2
+position = Vector2(1056, 88)
+
+[connection signal="win_clicked" from="WinScreen" to="." method="_on_win_screen_win_clicked"]

@@ -1,8 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://6pq6ce6qamxo"]
+[gd_scene load_steps=5 format=3 uid="uid://6pq6ce6qamxo"]
 
 [ext_resource type="Script" path="res://scenes/floor_buttons/floor_button.gd" id="1_oe40l"]
-[ext_resource type="Texture2D" uid="uid://cfr1wcdsr7yh7" path="res://sprites/red_button_raised.png" id="2_lx6ir"]
-[ext_resource type="Texture2D" uid="uid://baq615m1rmrj2" path="res://sprites/red_button_pressed.png" id="3_ym8h2"]
+[ext_resource type="PackedScene" uid="uid://ifqydqg78xig" path="res://scenes/visual_aid.tscn" id="3_fjibq"]
 [ext_resource type="SpriteFrames" uid="uid://dig13dd77wfkx" path="res://sprites/red_button_animated.tres" id="4_lnf73"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2yac6"]
@@ -12,8 +11,6 @@ radius = 16.0
 light_mask = 3
 visibility_layer = 3
 script = ExtResource("1_oe40l")
-untouched_sprite = ExtResource("2_lx6ir")
-touched_sprite = ExtResource("3_ym8h2")
 box_interactable = true
 delete_potential = false
 
@@ -25,6 +22,8 @@ animation = &"unpressed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("CircleShape2D_2yac6")
+
+[node name="VisualAid" parent="." instance=ExtResource("3_fjibq")]
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_body_exited"]

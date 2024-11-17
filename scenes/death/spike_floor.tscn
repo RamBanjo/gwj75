@@ -9,6 +9,8 @@ size = Vector2(64, 64)
 [node name="SpikeFloor" type="Area2D"]
 light_mask = 3
 visibility_layer = 3
+collision_layer = 3
+collision_mask = 3
 script = ExtResource("1_iy67m")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

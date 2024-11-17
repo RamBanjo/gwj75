@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://crgam25ce6rku"]
 
-[ext_resource type="Texture2D" uid="uid://cmvs33gy4dd7i" path="res://sprites/player.png" id="1_dsjfy"]
 [ext_resource type="Script" path="res://scenes/player.gd" id="1_trqil"]
 [ext_resource type="PackedScene" uid="uid://dk2hh7n5tvge4" path="res://scenes/boxes/player_corpse.tscn" id="2_spbqi"]
+[ext_resource type="SpriteFrames" uid="uid://biumo6ppxhbv7" path="res://sprites/player_animation.tres" id="3_w2ivj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ngeta"]
 size = Vector2(48, 48)
@@ -13,8 +13,11 @@ motion_mode = 1
 script = ExtResource("1_trqil")
 player_corpse = ExtResource("2_spbqi")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_dsjfy")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -16)
+sprite_frames = ExtResource("3_w2ivj")
+animation = &"one_frame"
+autoplay = "one_frame"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_ngeta")
