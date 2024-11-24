@@ -4,10 +4,10 @@ class_name VisualAid
 var my_color: UnlockerObject.UnlockColor
 
 const VISUAL_AID_SYMBOL_DICT = {
-	UnlockerObject.UnlockColor.RED : "◆",
-	UnlockerObject.UnlockColor.GREEN : "▼",
-	UnlockerObject.UnlockColor.BLUE : "◉",
-	UnlockerObject.UnlockColor.YELLOW : "⬣",
+	UnlockerObject.UnlockColor.RED : "🝔",
+	UnlockerObject.UnlockColor.GREEN : "🜂",
+	UnlockerObject.UnlockColor.BLUE : "🜨",
+	UnlockerObject.UnlockColor.YELLOW : "⎔",
 }
 
 const VISUAL_AID_COLOR_DICT = {

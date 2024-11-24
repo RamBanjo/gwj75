@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://bc62eybynn5wl"]
+[gd_scene load_steps=9 format=3 uid="uid://bc62eybynn5wl"]
 
 [ext_resource type="Script" path="res://scenes/game_menu/main_menu.gd" id="1_1gykj"]
 [ext_resource type="Theme" uid="uid://bhr6k16rk2ein" path="res://themes/soulkobond_default_theme.tres" id="1_3u42a"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bteoeg5ecdjq0" path="res://scenes/sound_player.tscn" id="3_oowl5"]
 [ext_resource type="PackedScene" uid="uid://ds3nwy4kc77xe" path="res://scenes/main_menu_player.tscn" id="4_1xfhy"]
 [ext_resource type="Texture2D" uid="uid://bixxww2omigad" path="res://sprites/75-Reflections.png" id="4_ly30q"]
+[ext_resource type="FontFile" uid="uid://dhdeawkytd4xc" path="res://fonts/Patua_One/PatuaOne-Regular.ttf" id="4_wyyi4"]
 [ext_resource type="Texture2D" uid="uid://b660hrxxnhmw7" path="res://sprites/75-All-Cards.png" id="5_hyygc"]
 
 [node name="MainMenu" type="Node2D"]
@@ -271,7 +272,6 @@ theme_override_font_sizes/font_size = 32
 text = "Close Options"
 
 [node name="CreditsCanvas" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Panel" type="Panel" parent="CreditsCanvas"]
 anchors_preset = 7
@@ -346,29 +346,29 @@ Kirbio"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="GameSubtitle3" type="Label" parent="CreditsCanvas/Panel"]
+[node name="GameSubtitle3" type="RichTextLabel" parent="CreditsCanvas/Panel"]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -80.0
-offset_top = 24.0
+offset_top = 48.0
 offset_right = 80.0
 offset_bottom = 296.0
 grow_horizontal = 2
 theme = ExtResource("1_3u42a")
-theme_override_font_sizes/font_size = 18
-text = "Music
-イビツ - shimtone
+theme_override_fonts/normal_font = ExtResource("4_wyyi4")
+theme_override_font_sizes/normal_font_size = 18
+bbcode_enabled = true
+text = "[center]Music
+[font=res://fonts/Noto_Sans_JP/static/NotoSansJP-Bold.ttf]イビツ[/font] - shimtone
 DOVA-SYNDROME
 
 Death Sound
 RamChops Games
 
 Other SFX
-Kenney"
-horizontal_alignment = 1
-vertical_alignment = 1
+Kenney[/center]"
 
 [node name="RichTextLabel2" type="RichTextLabel" parent="CreditsCanvas/Panel"]
 layout_mode = 1
@@ -396,16 +396,16 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = 128.0
-offset_top = 24.0
+offset_top = 8.0
 offset_right = 320.0
-offset_bottom = 296.0
+offset_bottom = 336.0
 grow_horizontal = 2
 theme_type_variation = &"InformativeRichLabel"
 theme_override_font_sizes/normal_font_size = 18
 bbcode_enabled = true
 text = "[center]
 Fonts
-
+[font_size=16]
 [font=res://fonts/Patua_One/PatuaOne-Regular.ttf]Patua One
 LatinoType Limitada[/font]
 
@@ -413,7 +413,11 @@ LatinoType Limitada[/font]
 SIL International[/font]
 
 [font=res://fonts/Aldrich/Aldrich-Regular.ttf]Aldritch
-Matthew Desmond[/font]"
+Matthew Desmond[/font]
+
+[font=res://fonts/Noto_Sans_JP/static/NotoSansJP-Bold.ttf]Noto Sans JP
+[/font][font=res://fonts/Noto_Sans_Symbols/NotoSansSymbols-Black.ttf]Noto Sans Symbols
+[/font]"
 
 [node name="AboutJamCanvas" type="CanvasLayer" parent="."]
 visible = false

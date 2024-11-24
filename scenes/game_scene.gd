@@ -106,7 +106,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-func reset_unlockable_things():
+static func reset_unlockable_things():
 	unlockable_things_by_color = UNLOCKABLE_THINGS_IN_SCENE.duplicate(true)
 
 func _on_unlocker_activated(my_color: UnlockerObject.UnlockColor):
@@ -148,7 +148,7 @@ func load_next_stage():
 	else:
 		get_tree().change_scene_to_file(GameOptions.LEVEL_DICTS[level_index+1]["level_path"])
 
-func reset_statics_before_load():
+static func reset_statics_before_load():
 	reset_unlockable_things()
 	UnlockerObject.reset_toggle_count()
 	PlayerCharacter.reset_death_records()

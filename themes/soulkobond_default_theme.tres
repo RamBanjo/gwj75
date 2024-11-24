@@ -1,9 +1,10 @@
-[gd_resource type="Theme" load_steps=5 format=3 uid="uid://bhr6k16rk2ein"]
+[gd_resource type="Theme" load_steps=6 format=3 uid="uid://bhr6k16rk2ein"]
 
 [ext_resource type="FontFile" uid="uid://dhdeawkytd4xc" path="res://fonts/Patua_One/PatuaOne-Regular.ttf" id="1_0oxbl"]
 [ext_resource type="FontFile" uid="uid://bsehjocpliys8" path="res://fonts/Gentium_Plus/GentiumPlus-Bold.ttf" id="1_a2f8y"]
 [ext_resource type="FontFile" uid="uid://d2roeeku2lp40" path="res://fonts/Aldrich/Aldrich-Regular.ttf" id="1_j1w6b"]
 [ext_resource type="StyleBox" uid="uid://drfrketuhrkwl" path="res://themes/9patch_stone_rect.tres" id="4_o0mqw"]
+[ext_resource type="FontFile" uid="uid://cfkger2q1mlqx" path="res://fonts/Noto_Sans_Symbols/NotoSansSymbols-Black.ttf" id="5_hqrro"]
 
 [resource]
 default_font = ExtResource("1_0oxbl")
@@ -16,3 +17,5 @@ TitleLabel/base_type = &"Label"
 TitleLabel/font_sizes/font_size = 32
 TitleLabel/fonts/font = ExtResource("1_a2f8y")
 TitleLabel/styles/normal = ExtResource("4_o0mqw")
+VisualAidRichLabel/base_type = &"RichTextLabel"
+VisualAidRichLabel/fonts/normal_font = ExtResource("5_hqrro")

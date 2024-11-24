@@ -13,13 +13,14 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -32.0
-offset_top = -72.0
+offset_top = -68.0
 offset_right = 32.0
-offset_bottom = -32.0
+offset_bottom = -4.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_jkxo4")
+theme_type_variation = &"VisualAidRichLabel"
 bbcode_enabled = true
-text = "[center][color=FFFE77][outline_size=10]◆[/outline_size][/color][/center]"
+text = "[center][color=FFFE77][outline_size=10]🝔[/outline_size][/color][/center]"
 scroll_active = false
 script = ExtResource("2_i0wmj")

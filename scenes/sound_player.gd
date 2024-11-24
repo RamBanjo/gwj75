@@ -9,6 +9,10 @@ class_name SoundPlayer
 @onready var sfx_list = [$SoundEffectPlayer/DeathSound, $SoundEffectPlayer/WinSound, $SoundEffectPlayer/SwitchSound, $SoundEffectPlayer/KeySound]
 @onready var bgm_player : AudioStreamPlayer = $BGMPlayer
 
+func _ready() -> void:
+	set_bgm_volume(GameOptions.load_volume("music"))
+	set_sfx_volume(GameOptions.load_volume("sfx"))
+	
 func stop_bgm():
 	bgm_player.stop()
 	

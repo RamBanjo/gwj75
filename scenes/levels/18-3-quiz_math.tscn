@@ -79,15 +79,15 @@ position = Vector2(928, 480)
 
 [node name="CountingDoor" parent="." instance=ExtResource("13_rrqr0")]
 position = Vector2(416, 544)
-unlock_number = 8
+unlock_number = 16
 
 [node name="CountingDoor2" parent="." instance=ExtResource("13_rrqr0")]
 position = Vector2(672, 544)
-unlock_number = 14
+unlock_number = 28
 
 [node name="CountingDoor3" parent="." instance=ExtResource("13_rrqr0")]
 position = Vector2(928, 544)
-unlock_number = 28
+unlock_number = 32
 
 [node name="Door3" parent="." instance=ExtResource("16_fajby")]
 position = Vector2(416, 416)

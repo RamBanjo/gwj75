@@ -15,5 +15,6 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	
+	GameStage.reset_statics_before_load()
 	get_tree().change_scene_to_file("res://scenes/game_menu/main_menu.tscn")
 	pass # Replace with function body.
